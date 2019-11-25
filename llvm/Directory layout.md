@@ -106,21 +106,35 @@ llvm-project/llvm directory listing is as follows:
 
 ### llvm-project/llvm/benchmarks
 
-
+​	FIXME: T.B.D.
 
 ### llvm-project/llvm/bindings
 
+​	FIXME: T.B.D.
+
 ### llvm-project/llvm/cmake
+
+​	FIXME: T.B.D.
 
 ### llvm-project/llvm/CMakeLists.txt
 
+​	FIXME: T.B.D.
+
 ### llvm-project/llvm/CODE_OWNERS.TXT
+
+​	FIXME: T.B.D.
 
 ### llvm-project/llvm/configure
 
+​	FIXME: T.B.D.
+
 ### llvm-project/llvm/CREDITS.TXT
 
+​	FIXME: T.B.D.
+
 ### llvm-project/llvm/docs
+
+​	FIXME: T.B.D.
 
 ### llvm-project/llvm/examples
 
@@ -198,11 +212,19 @@ llvm-project/llvm directory listing is as follows:
 
 ### llvm-project/llvm/README.txt
 
+​	The introduction of this repository.
+
 ### llvm-project/llvm/RELEASE_TESTERS.TXT
+
+​	FIXME: T.B.D.
 
 ### llvm-project/llvm/resources
 
+​	FIXME: T.B.D.
+
 ### llvm-project/llvm/runtimes
+
+​	FIXME: T.B.D.
 
 ### llvm-project/llvm/test
 
@@ -214,9 +236,43 @@ llvm-project/llvm directory listing is as follows:
 
 ##### bugpoint:
 
+​	bugpoint is used to debug optimization passes or code generation backends by narrowing down the given test case to the minimum number of passes and/or instructions that still cause a problem, whether it is a crash or miscompilation. See How ToSubmitABug.html for more information on using bugpoint.
 
+##### llvm-ar:
+
+​	The archiver produces an archive containing the given LLVM bitcode files, optionally with an index for faster lookup.
+
+##### llvm-as:
+
+​	The assembler transforms the human readable LLVM assembly to LLVM bitcode.
+
+##### llvm-dis:
+
+​	The disassembler transforms the LLVM bitcode to human readable LLVM assembly.
+
+##### llvm-link:
+
+​	llvm-link, not surprisingly, links multiple LLVM modules into a single program.
+
+##### lli:
+
+​	lli is the LLVM interpreter, which can directly execute LLVM bitcode(although very slowly...). For architectures that support it (currently X86, Sparc, and PowerPC), by default, lli will function as a Just-In-Time compiler(if the funcationality was compiled in), and will execute the code much faster than the interpreter.
+
+##### llc:
+
+​	llc is the LLVM backend compiler, which translates LLVM bitcode to a native code assembly file.
+
+##### opt:
+
+​	opt reads LLVM bitcode, applies a series of LLVM to LLVM transformations (which are specified on the command line), and outputs the resultant bitcode. 'opt -help' is a good way to get a list of the program transformations available in LLVM.
+
+​	opt can also run a specific analysis on an input LLVM bitcode file and print the results. Primarily useful for debugging analyses, or familiarizing yourself with what an analysis does.
 
 ### llvm-project/llvm/unittests
 
+​	unittests are written using [Google test][https://github.com/google/googletest/blob/master/googletest/docs/primer.md] and [Google Mock][https://github.com/google/googletest/blob/master/googlemock/docs/ForDummies.md] .
+
 ### llvm-project/llvm/utils
+
+​	FIXME: T.B.D.
 
