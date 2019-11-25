@@ -162,7 +162,7 @@ llvm-project/llvm directory listing is as follows:
 
 #### llvm/lib/IR/
 
-​	Core LLVM source files that implement core classes like instruction and BasicBlock.
+​	Core LLVM source files that implement core classes like Instruction and BasicBlock.
 
 #### llvm/lib/AsmParser/
 
@@ -182,7 +182,7 @@ llvm-project/llvm directory listing is as follows:
 
 #### llvm/lib/Target/
 
-​	Files describing target arichitectures for code generation. For example, llvm/lib/Target/X86 holds the X86 machine description.
+​	Files describing target architectures for code generation. For example, llvm/lib/Target/X86 holds the X86 machine description.
 
 #### llvm/lib/CodeGen/
 
@@ -234,35 +234,35 @@ llvm-project/llvm directory listing is as follows:
 
 ​	Executables built out of the libraries above, which form the main part of the user interface. You can always get help for a tool by typing tool_name -help. There are the most important tools:
 
-##### bugpoint:
+###### bugpoint:
 
 ​	bugpoint is used to debug optimization passes or code generation backends by narrowing down the given test case to the minimum number of passes and/or instructions that still cause a problem, whether it is a crash or miscompilation. See How ToSubmitABug.html for more information on using bugpoint.
 
-##### llvm-ar:
+###### llvm-ar:
 
 ​	The archiver produces an archive containing the given LLVM bitcode files, optionally with an index for faster lookup.
 
-##### llvm-as:
+###### llvm-as:
 
 ​	The assembler transforms the human readable LLVM assembly to LLVM bitcode.
 
-##### llvm-dis:
+###### llvm-dis:
 
 ​	The disassembler transforms the LLVM bitcode to human readable LLVM assembly.
 
-##### llvm-link:
+###### llvm-link:
 
 ​	llvm-link, not surprisingly, links multiple LLVM modules into a single program.
 
-##### lli:
+###### lli:
 
-​	lli is the LLVM interpreter, which can directly execute LLVM bitcode(although very slowly...). For architectures that support it (currently X86, Sparc, and PowerPC), by default, lli will function as a Just-In-Time compiler(if the funcationality was compiled in), and will execute the code much faster than the interpreter.
+​	lli is the LLVM interpreter, which can directly execute LLVM bitcode(although very slowly...). For architectures that support it (currently X86, Sparc, and PowerPC), by default, lli will function as a Just-In-Time compiler(if the functionality was compiled in), and will execute the code much faster than the interpreter.
 
-##### llc:
+###### llc:
 
 ​	llc is the LLVM backend compiler, which translates LLVM bitcode to a native code assembly file.
 
-##### opt:
+###### opt:
 
 ​	opt reads LLVM bitcode, applies a series of LLVM to LLVM transformations (which are specified on the command line), and outputs the resultant bitcode. 'opt -help' is a good way to get a list of the program transformations available in LLVM.
 
@@ -274,5 +274,28 @@ llvm-project/llvm directory listing is as follows:
 
 ### llvm-project/llvm/utils
 
-​	FIXME: T.B.D.
+​	Utilities for working with LLVM source code; some are part of the build process because they are code generators for parts of the infrastructure.
 
+###### codegen-diff:
+
+​	codegen-diff finds differences between code that LLC generates and code that LLI generates. This is useful if you are debugging one of them, assuming that the other generates correct output. For the full user manual, run 'perldoc codegen-diff'.
+
+###### emacs:
+
+​	Emacs and XEmacs syntax highlighting for LLVM assembly files and TableGen description files. See the README for information on using them.
+
+###### getsrcs.sh:
+
+​	Finds and outputs all non-generated source files, useful if one wishes to do a lot of development across directories and does not want to find each file. One way to use it is to run, for example: xemacs `utils/getsources.sh` from the top of the LLVM source tree.
+
+###### llvmgrep:
+
+​	Performs an egrep -H -n on each source file in LLVM and passes to it a regular expression provided on llvmgrep's command line. This is an efficient way of searching the source base for a particular regular expression.
+
+###### TableGen:
+
+​	Contains the tool used to generate register descriptions, instruction set descriptions, and even assemblers from common TableGen description files.
+
+###### vim/:
+
+​	vim syntax-highlighting for LLVM assembly files and TableGen description files. See the README for how to use them.
