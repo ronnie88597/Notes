@@ -104,59 +104,55 @@ llvm-project/llvm directory listing is as follows:
 
 ![llvm_directory_layout](./rsc/llvm_directory_layout.png)
 
-### llvm-project/llvm/benchmarks
+### llvm-project/llvm/benchmarks/
 
-​	FIXME: T.B.D.
+​	benchmarks test. It supports for registering benchmarks for functions.
 
-### llvm-project/llvm/bindings
+### llvm-project/llvm/bindings/
 
-​	FIXME: T.B.D.
+​	This directory contains bindings for the LLVM compiler infrastructure to allow programs written in languages other than C or C++ to take advantage of the LLVM infrastructure -- for instance, a self-hosted compiler frontend.
 
-### llvm-project/llvm/cmake
+### llvm-project/llvm/cmake/
 
-​	FIXME: T.B.D.
-
-### llvm-project/llvm/CMakeLists.txt
-
-​	FIXME: T.B.D.
+​	This directory contains cmake-project files which are used to build LLVM.
 
 ### llvm-project/llvm/CODE_OWNERS.TXT
 
-​	FIXME: T.B.D.
+​	This file is a list of the people responsible for ensuring that patches for a particular part of LLVM are reviewed, either by themself or by someone else. They are also the gatekeepers for their part of LLVM, with the final word on what goes in or not.
 
 ### llvm-project/llvm/configure
 
-​	FIXME: T.B.D.
+​	The LLVM project no longer supports building with configure & make.Please migrate to the CMake-based build system.
 
 ### llvm-project/llvm/CREDITS.TXT
 
-​	FIXME: T.B.D.
+​	This file is a partial list of people who have contributed to the LLVM project. If you have contributed a patch or made some other contribution to LLVM, please submit a patch to this file to add yourself, and it will be done!
 
-### llvm-project/llvm/docs
+### llvm-project/llvm/docs/
 
-​	FIXME: T.B.D.
+​	Documentions of LLVM project.
 
-### llvm-project/llvm/examples
+### llvm-project/llvm/examples/
 
 ​	Simple examples using the LLVM IR and JIT.
 
-### llvm-project/llvm/include
+### llvm-project/llvm/include/
 
 ​	Public header files exported from the LLVM library. The three main subdirectories:
 
-#### llvm/include/llvm
+#### llvm/include/llvm/
 
 ​	All LLVM-specific header files, and subdirectories for different portions of LLVM: Analysis, CodeGen, Target, Transforms, etc...
 
-#### llvm/include/llvm/Support
+#### llvm/include/llvm/Support/
 
 ​	Generic support libraries provided with LLVM but not necessarily specific to LLVM. For example, some C++ STL utilities and a Command Line option processing library store header files here.
 
-#### llvm/include/llvm/Config
+#### llvm/include/llvm/Config/
 
 ​	Header files configured by cmake. They wrap "standard" UNIX and C header files. Source code can include these header files which automatically take care of the conditional #includes that cmake generates.
 
-### llvm-project/llvm/lib
+### llvm-project/llvm/lib/
 
 ​	Most source files are here. By putting code in libraries, LLVM makes it easy to share code among the tools.
 
@@ -200,37 +196,35 @@ llvm-project/llvm directory listing is as follows:
 
 ​	Source code that corresponding to the header files in llvm/include/ADT/ and llvm/include/Support/.
 
-### llvm-project/llvm/LICENSE.TXT
-
 ### llvm-project/llvm/LLVMBuild.txt
+
+​	This is an LLVMBuild description file for the components in this subdirectory.For more information on the LLVMBuild system, please see:http://llvm.org/docs/LLVMBuild.html
 
 ### llvm-project/llvm/llvm.spec.in
 
-### llvm-project/llvm/projects
+​	Special configure file for LLVM project.
+
+### llvm-project/llvm/projects/
 
 ​	Projects not strictly part of LLVM but shipped with LLVM. This is also the directory for creating your own LLVM-based projects which leverage the LLVM build system.
 
 ### llvm-project/llvm/README.txt
 
-​	The introduction of this repository.
+​	A text file that introduces and explains for LLVM project.
 
 ### llvm-project/llvm/RELEASE_TESTERS.TXT
 
-​	FIXME: T.B.D.
+​	This file is a list of the people responsible for ensuring that targets and environments get tested and validated during the release process.
 
-### llvm-project/llvm/resources
+### llvm-project/llvm/runtimes/
 
-​	FIXME: T.B.D.
+​	runtimes are sub-projects of LVM. They are different from tools or other drop-in projects because runtimes should be built with the LLVM toolchain from the build directory.
 
-### llvm-project/llvm/runtimes
-
-​	FIXME: T.B.D.
-
-### llvm-project/llvm/test
+### llvm-project/llvm/test/
 
 ​	Feature and regression tests and other sanity checks on LLVM infrastructure. These are intended to run quickly and cover a lot of territory without being exhaustive.
 
-### llvm-project/llvm/tools
+### llvm-project/llvm/tools/
 
 ​	Executables built out of the libraries above, which form the main part of the user interface. You can always get help for a tool by typing tool_name -help. There are the most important tools:
 
@@ -268,11 +262,11 @@ llvm-project/llvm directory listing is as follows:
 
 ​	opt can also run a specific analysis on an input LLVM bitcode file and print the results. Primarily useful for debugging analyses, or familiarizing yourself with what an analysis does.
 
-### llvm-project/llvm/unittests
+### llvm-project/llvm/unittests/
 
 ​	unittests are written using [Google test][https://github.com/google/googletest/blob/master/googletest/docs/primer.md] and [Google Mock][https://github.com/google/googletest/blob/master/googlemock/docs/ForDummies.md] .
 
-### llvm-project/llvm/utils
+### llvm-project/llvm/utils/
 
 ​	Utilities for working with LLVM source code; some are part of the build process because they are code generators for parts of the infrastructure.
 
@@ -298,4 +292,4 @@ llvm-project/llvm directory listing is as follows:
 
 ###### vim/:
 
-​	vim syntax-highlighting for LLVM assembly files and TableGen description files. See the README for how to use them.
+​	Vim syntax-highlighting for LLVM assembly files and TableGen description files. See the README for how to use them.
