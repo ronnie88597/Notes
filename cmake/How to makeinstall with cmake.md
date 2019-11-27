@@ -1,4 +1,4 @@
-# How to install with cmake
+# How to makeinstall with cmake
 
 ## Install:
 
@@ -117,7 +117,6 @@ INSTALL(TARGETS hello
 ```
 
 ./doc/CMakeLists.txt: This file is empty.
-
 Then, Enter 'build' directory, and run command as follow:
 
 ```shell

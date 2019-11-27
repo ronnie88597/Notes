@@ -1,7 +1,6 @@
 # How to solve ExecutionEngine OprofileJIT compilation error?
 
 My llvm source is HEAD detached at llvmorg-9.0.0.
-
 After making llvm cmake project, and compiling it, an error occured. As follow:
 
 ![OProfileJIT_compilation_error](/home/cmp/work_dir/Notes/llvm/img/OProfileJIT_ERROR.png)

@@ -11,7 +11,6 @@
 ## Run tests
 
 ​	Firstly, You must create llvm cmake project. And Using Cmake option '-DLLVM-BUILD_TESTS=ON'(Defaults to OFF) to build LLVM unittests' makefile. More LLVM CMake special variables, see 'llvm/doc/CMake.rst'.
-
 ​	Run command to build LLVM CMake project, as follow:
 
 ```shell
@@ -74,8 +73,6 @@ llvm-lit ~/llvm/test/CodeGen/ARM
 ```
 
 For more information on using the lit tool, see llvm-lit --help or the [lit man page][http://llvm.org/docs/CommandGuide/lit.html]
-
-
 
 ## References:
 
