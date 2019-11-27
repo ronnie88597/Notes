@@ -24,7 +24,7 @@
 ```cmake
 cmake_minimum_required(VERSION 3.12)
 PROJECT(HELLO)
-ADD_SUBDIRECTORY(src src)
+ADD_SUBDIRECTORY(src)
 ```
 
 

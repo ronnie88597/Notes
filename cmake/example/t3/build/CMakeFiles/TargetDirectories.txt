@@ -1,0 +1,5 @@
+/home/cmp/work_dir/Notes/cmake/example/t3/build/CMakeFiles/rebuild_cache.dir
+/home/cmp/work_dir/Notes/cmake/example/t3/build/CMakeFiles/edit_cache.dir
+/home/cmp/work_dir/Notes/cmake/example/t3/build/lib/CMakeFiles/rebuild_cache.dir
+/home/cmp/work_dir/Notes/cmake/example/t3/build/lib/CMakeFiles/hello.dir
+/home/cmp/work_dir/Notes/cmake/example/t3/build/lib/CMakeFiles/edit_cache.dir

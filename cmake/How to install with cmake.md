@@ -6,25 +6,65 @@
 
 ### 	Synopsis:
 
-​		install(TARGETS <target>... [...])
+```cmake
+install(TARGETS <target>... [EXPORT <export-name>]
+[
+[ARCHIVE|LIBRARY|RUNTIME|OBJECTS|FRAMEWORK|BUNDLE|
+	PRIVATE_HEADER|PUBLIC_HEADER|RESOURCE]
+[DESTINATION <dir>]
+[PERMISSIONS permissions...]
+[CONFIGURATIONS [Debug|Release|...]]
+[COMPONENT <component>]
+[NAMELINK_COMPONENT <component>]
+[OPTIONAL]
+[EXCLUDE_FROM_ALL]
+[NAMELINK_ONLY|NAMELINK_SKIP]
+][...]
+[INCLUDES DESTINATION [<dir> ...]]
+)
+install({FILES | PROGRAMS} <file>... [...])
+install(DIRECTORY <dir>... [...])
+install(SCRIPT <file> [...])
+install(CODE <code> [...])
+install(EXPORT <export-name> [...])
+```
 
-​		install({FILES | PROGRAMS} <file>... [...])
 
-​		install(DIRECTORY <dir>... [...])
 
-​		install(SCRIPT <file> [...])
 
-​		install(CODE <code> [...])
-
-​		install(EXPORT <export-name> [...])
 
 ​	This command generates installation rules for a project. Rules specified by calls to this command within a source directory are executed in order during installation. The order across directories is not defined.
 
 ### 	The common options are:
 
-#### 	DESTINATION:
+#### 		DESTINATION:
 
 ​		Specify the directory on disk to which a file will be installed. If a full path(with a leading slash or drive letter) is given it is used directly. If a relative path is given it is interpreted relative to the value of [CMAKE_INSTALL_PREFIX][https://cmake.org/cmake/help/v3.16/variable/CMAKE_INSTALL_PREFIX.html#variable:CMAKE_INSTALL_PREFIX] variable.
+
+#### 	PERMISSIONS:
+
+​		Specify permissions for installed files. Valid permissions are OWNER_PREAD, OWNER_WRITE, OWNER_EXECUTE, GROUP_READ, GROUP_WRITE, GROUP_EXECUTE, WORLD_READ, WORLD_WRITE, WORLD_EXECUTE, SETUID, and SETGID. 
+
+#### 	CONFIGURATIONS:
+
+​		Specify a list of build configurations for which the install rule applies(Debug, Release, etc.). Note that the values specified for this option only apply to options listed AFTER the CONFIGURATIONS option. For example, to set separate install paths for the Debug and Release configurations, do the following:
+
+```cmake
+install(TARGETS target
+		CONFIGURATIONS Debug
+		RUNTIME DESTINATION Debug/bin)
+install(TARGETS target
+		CONFIGURATIONS Release
+		RUNTIME DESTINATION Release/bin)
+```
+
+#### 	COMPONENT:
+
+​		Specify an installation component name with which the install rule is associated, such as "runtime" or "development". During component specific installation only install rules associated with the given component name will be executed. During a full installation all components are installed unless marked with EXCLUDE_FROM_ALL. If COMPONENT is not provided a default component "Unspecified" is created. The default component name may be controlled with the [CMAKE_INSTALL_DEFAULT_COMPONENT_NAME][https://cmake.org/cmake/help/v3.16/variable/CMAKE_INSTALL_DEFAULT_COMPONENT_NAME.html#variable:CMAKE_INSTALL_DEFAULT_COMPONENT_NAME] variable.
+
+#### 	EXCLUDE_FROM_ALL:
+
+// TODO
 
 ### Example:
 
@@ -50,8 +90,8 @@ Source-code directory tree
 ```cmake
 cmake_minimum_required(VERSION 3.12)
 PROJECT(HELLO)
-ADD_SUBDIRECTORY(src src)
-ADD_SUBDIRECTORY(doc doc)
+ADD_SUBDIRECTORY(src)
+ADD_SUBDIRECTORY(doc)
 
 #install
 INSTALL(FILES COPYRIGHT README DESTINATION .)

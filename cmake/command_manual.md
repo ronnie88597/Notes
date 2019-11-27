@@ -106,6 +106,22 @@ command (args...)
 
 ## install:
 
+## add_library:
+
+## set_target_properties:
+
+### 	options:
+
+​		CLEAN_DIRECT_OUTPUT
+
+​		VERSION
+
+​		SOVERSION
+
+## get_target_properties:
+
+## include_directories:
+
 
 
 
