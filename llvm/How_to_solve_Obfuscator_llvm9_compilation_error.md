@@ -2,11 +2,11 @@
 
 How to solve the problem that an error occurs in Obfuscator(llvm-9.0) compilation, as follow figure:
 
-![obfuscator_compilation_error img](./rsc/obfuscator_compilation_error.png)
+![obfuscator_compilation_error img](./img/obfuscator_compilation_error.png)
 
 ​	As error information showing, 'undefined reference to llvm::createLowerSwitchPass()'. Cause of the problem is lack of llvm link-components configured.
 
-​	The mine way to solve the problem is:
+​	The way to solve the problem is:
 
 ​	1.modify 'obfuscator/tools/lto/CMakeLists.txt':
 

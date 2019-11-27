@@ -1,12 +1,12 @@
 # Directory Layout
 
-clone with git:https://github.com/llvm/llvm-project.git
+Source-code of llvm-project clone with git:https://github.com/llvm/llvm-project.git
 
 HEAD detached at llvmorg-9.0.0
 
 After the source-code is downloaded, a directory named 'llvm-project' appears and the directory listing is as follows:
 
-![llvm_project_directory_layout](./rsc/llvm_project_directory_layout.png)
+![llvm_project_directory_layout](./img/llvm_project_directory_layout.png)
 
 The following is a brief introduction to code layout.
 
@@ -102,7 +102,7 @@ define i32 @f1(i32 %i) nounwing ssp{
 
 llvm-project/llvm directory listing is as follows:
 
-![llvm_directory_layout](./rsc/llvm_directory_layout.png)
+![llvm_directory_layout](./img/llvm_directory_layout.png)
 
 ### llvm-project/llvm/benchmarks/
 

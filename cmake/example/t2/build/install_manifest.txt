@@ -1,0 +1,6 @@
+/home/cmp/work_dir/Notes/cmake/example/t2_install/./COPYRIGHT
+/home/cmp/work_dir/Notes/cmake/example/t2_install/./README
+/home/cmp/work_dir/Notes/cmake/example/t2_install/bin/runhello.sh
+/home/cmp/work_dir/Notes/cmake/example/t2_install/./doc/CMakeLists.txt
+/home/cmp/work_dir/Notes/cmake/example/t2_install/./doc/hello.txt
+/home/cmp/work_dir/Notes/cmake/example/t2_install/bin/hello
