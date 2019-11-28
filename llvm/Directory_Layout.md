@@ -10,7 +10,7 @@ The following is a brief introduction to code layout.
 
 ## llvm-project/clang
 
-​	[Clang](http://clang.llvm.org/) is an "llvm native" C/C++/Objective-C compiler, which aims to deliver amazingly fast compiles (e.g. about [3x faster than GCC][http://clang.llvm.org/features.html#performance] when compiling Objective-C code in a debug configuration), extremely useful [error and warning messages][http://clang.llvm.org/diagnostics.html] and to provide a platform for building great source level tools. The [Clang Static Analyzer][http://clang-analyzer.llvm.org/] is a tool that automatically finds bugs in your code, and is great example of the sort of tool that can be built using the Clang frontend as library to parse C/C++ code.
+​	[Clang](http://clang.llvm.org/) is an "llvm native" C/C++/Objective-C compiler, which aims to deliver amazingly fast compiles (e.g. about [3x faster than GCC](http://clang.llvm.org/features.html#performance) when compiling Objective-C code in a debug configuration), extremely useful [error and warning messages](http://clang.llvm.org/diagnostics.html) and to provide a platform for building great source level tools. The [Clang Static Analyzer](http://clang-analyzer.llvm.org/) is a tool that automatically finds bugs in your code, and is great example of the sort of tool that can be built using the Clang frontend as library to parse C/C++ code.
 
 ## llvm-project/clang-tools-extra
 
@@ -20,7 +20,7 @@ The following is a brief introduction to code layout.
 
 ## llvm-project/compiler-rt
 
-​	The [compiler-rt][http://compiler-rt.llvm.org/] project provides highly tuned implementations of the low-level code generator support routines like "__fixunsdfdi" and other calls generated when a target doesn't have a short sequence of native instructions to implement a core IR operation. It also provides implementations of run-time libraries for dynamic testing tools such as [AdressSanitizer][http://clang.llvm.org/docs/AddressSanitizer.html], [ThreadSanitizer][http://clang.llvm.org/docs/ThreadSanitizer.html], [MemorySanitizer][http://clang.llvm.org/docs/MemorySanitizer.html], and [DataFlowSanitizer][http://clang.llvm.org/docs/DataFlowSanitizer.html]
+​	The [compiler-rt](http://compiler-rt.llvm.org/) project provides highly tuned implementations of the low-level code generator support routines like "__fixunsdfdi" and other calls generated when a target doesn't have a short sequence of native instructions to implement a core IR operation. It also provides implementations of run-time libraries for dynamic testing tools such as [AdressSanitizer](http://clang.llvm.org/docs/AddressSanitizer.html), [ThreadSanitizer](http://clang.llvm.org/docs/ThreadSanitizer.html), [MemorySanitizer](http://clang.llvm.org/docs/MemorySanitizer.html), and [DataFlowSanitizer](http://clang.llvm.org/docs/DataFlowSanitizer.html)
 
 ## llvm-project/debuginfo-tests
 
@@ -41,11 +41,11 @@ define i32 @f1(i32 %i) nounwing ssp{
 
 ## llvm-project/libclc
 
-​	The [libclc][http://libclc.llvm.org/] project aim to implement the OpenCL standard library.
+​	The [libclc](http://libclc.llvm.org/) project aim to implement the OpenCL standard library.
 
 ## llvm-project/libcxx & llvm-project/libcxxabi
 
-​	The [libc++][http://libcxx.llvm.org/] and [libc++ ABI][http://libcxxabi.llvm.org/] projects provide a standard conformant and high-performance implementation of the C++ standard library, include full support for C++ 11 and C++ 14.
+​	The [libc++](http://libcxx.llvm.org/) and [libc++ ABI](http://libcxxabi.llvm.org/) projects provide a standard conformant and high-performance implementation of the C++ standard library, include full support for C++ 11 and C++ 14.
 
 ## llvm-project/libunwind
 
@@ -53,11 +53,11 @@ define i32 @f1(i32 %i) nounwing ssp{
 
 ## llvm-project/lld
 
-​	The [LLD][http://lld.llvm.org/] project is a new linker. That is a drop-in replacement of system linkers and runs much faster.
+​	The [LLD](http://lld.llvm.org/) project is a new linker. That is a drop-in replacement of system linkers and runs much faster.
 
 ## llvm-project/lldb
 
-​	The [LLDB][http://lldb.llvm.org/] project builds on libraries provided by LLVM and Clang to provide a great native debugger. It uses the Clang ASTs and expression parser, LLVM JIT, LLVM disassembler, etc  so that it provides an experience that "just works". It is also blazing fast and much more memory efficient than GDB at loading symbols.
+​	The [LLDB](http://lldb.llvm.org/) project builds on libraries provided by LLVM and Clang to provide a great native debugger. It uses the Clang ASTs and expression parser, LLVM JIT, LLVM disassembler, etc  so that it provides an experience that "just works". It is also blazing fast and much more memory efficient than GDB at loading symbols.
 
 ## llvm-project/llgo
 
@@ -66,7 +66,7 @@ define i32 @f1(i32 %i) nounwing ssp{
 
 ## llvm-project/openmp
 
-​	The [OpenMP][http://openmp.llvm.org/] subproject provides an OpenMP runtime for use with the OpenMP implementation in Clang.
+​	The [OpenMP](http://openmp.llvm.org/) subproject provides an OpenMP runtime for use with the OpenMP implementation in Clang.
 
 ## llvm-project/parallel-libs
 
@@ -74,7 +74,7 @@ define i32 @f1(i32 %i) nounwing ssp{
 
 ## llvm-project/polly
 
-​	The [polly][http://polly.llvm.org/] project implements a suite of cache-locality optimizations as well as auto-parallelism and vectorization using a polyhedral model.
+​	The [polly](http://polly.llvm.org/) project implements a suite of cache-locality optimizations as well as auto-parallelism and vectorization using a polyhedral model.
 
 ## llvm-project/pstl
 
@@ -252,7 +252,7 @@ llvm-project/llvm directory listing is as follows:
 
 ### llvm-project/llvm/unittests/
 
-​	unittests are written using [Google test][https://github.com/google/googletest/blob/master/googletest/docs/primer.md] and [Google Mock][https://github.com/google/googletest/blob/master/googlemock/docs/ForDummies.md] .
+​	unittests are written using [Google test](https://github.com/google/googletest/blob/master/googletest/docs/primer.md) and [Google Mock](https://github.com/google/googletest/blob/master/googlemock/docs/ForDummies.md) .
 
 ### llvm-project/llvm/utils/
 

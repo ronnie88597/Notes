@@ -4,7 +4,7 @@ These variables are created with the name used in the project() command.
 
 ## <PROJECT-NAME>_BINARY_DIR
 
-​	Top level binary directory for the named project. This can be useful when [add_subdirectory()][https://cmake.org/cmake/help/v3.16/command/add_subdirectory.html#command:add_subdirectory] is used to connect several projects.
+​	Top level binary directory for the named project. This can be useful when [add_subdirectory()](https://cmake.org/cmake/help/v3.16/command/add_subdirectory.html#command:add_subdirectory) is used to connect several projects.
 
 ## <PROJECT-NAME>_DESCRIPTION
 
@@ -16,7 +16,7 @@ These variables are created with the name used in the project() command.
 
 ## <PROJECT-NAME>_SOURCE_DIR
 
-​	Top level source directory for the named project. This can be useful when [add_subdirectory()][https://cmake.org/cmake/help/v3.16/command/add_subdirectory.html#command:add_subdirectory] is used to connect several projects.
+​	Top level source directory for the named project. This can be useful when [add_subdirectory()](https://cmake.org/cmake/help/v3.16/command/add_subdirectory.html#command:add_subdirectory) is used to connect several projects.
 
 ## <PROJECT-NAME>_VERSION
 

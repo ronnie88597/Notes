@@ -6,7 +6,7 @@
 
 ## Unit test
 
-​	The LLVM unittests are written using [Google Test][https://github.com/google/googletest/blob/master/googletest/docs/primer.md] and [Google Mock][https://github.com/google/googletest/blob/master/googlemock/docs/ForDummies.md] and are located in the llvm/unittests directory.
+​	The LLVM unittests are written using [Google Test](https://github.com/google/googletest/blob/master/googletest/docs/primer.md) and [Google Mock](https://github.com/google/googletest/blob/master/googlemock/docs/ForDummies.md) and are located in the llvm/unittests directory.
 
 ## Run tests
 
@@ -72,7 +72,7 @@ or to run all of the ARM CodeGen tests:
 llvm-lit ~/llvm/test/CodeGen/ARM
 ```
 
-For more information on using the lit tool, see llvm-lit --help or the [lit man page][http://llvm.org/docs/CommandGuide/lit.html]
+For more information on using the lit tool, see llvm-lit --help or the [lit man page](http://llvm.org/docs/CommandGuide/lit.html)
 
 ## References:
 

@@ -39,7 +39,7 @@ install(EXPORT <export-name> [...])
 
 #### 		DESTINATION:
 
-​		Specify the directory on disk to which a file will be installed. If a full path(with a leading slash or drive letter) is given it is used directly. If a relative path is given it is interpreted relative to the value of [CMAKE_INSTALL_PREFIX][https://cmake.org/cmake/help/v3.16/variable/CMAKE_INSTALL_PREFIX.html#variable:CMAKE_INSTALL_PREFIX] variable.
+​		Specify the directory on disk to which a file will be installed. If a full path(with a leading slash or drive letter) is given it is used directly. If a relative path is given it is interpreted relative to the value of [CMAKE_INSTALL_PREFIX](https://cmake.org/cmake/help/v3.16/variable/CMAKE_INSTALL_PREFIX.html#variable:CMAKE_INSTALL_PREFIX) variable.
 
 #### 	PERMISSIONS:
 
@@ -60,7 +60,7 @@ install(TARGETS target
 
 #### 	COMPONENT:
 
-​		Specify an installation component name with which the install rule is associated, such as "runtime" or "development". During component specific installation only install rules associated with the given component name will be executed. During a full installation all components are installed unless marked with EXCLUDE_FROM_ALL. If COMPONENT is not provided a default component "Unspecified" is created. The default component name may be controlled with the [CMAKE_INSTALL_DEFAULT_COMPONENT_NAME][https://cmake.org/cmake/help/v3.16/variable/CMAKE_INSTALL_DEFAULT_COMPONENT_NAME.html#variable:CMAKE_INSTALL_DEFAULT_COMPONENT_NAME] variable.
+​		Specify an installation component name with which the install rule is associated, such as "runtime" or "development". During component specific installation only install rules associated with the given component name will be executed. During a full installation all components are installed unless marked with EXCLUDE_FROM_ALL. If COMPONENT is not provided a default component "Unspecified" is created. The default component name may be controlled with the [CMAKE_INSTALL_DEFAULT_COMPONENT_NAME](https://cmake.org/cmake/help/v3.16/variable/CMAKE_INSTALL_DEFAULT_COMPONENT_NAME.html#variable:CMAKE_INSTALL_DEFAULT_COMPONENT_NAME) variable.
 
 #### 	EXCLUDE_FROM_ALL:
 
