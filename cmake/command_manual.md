@@ -334,6 +334,16 @@ endif()
 
 ​	Evaluates the condition argument of the if clause according to the [Condition syntax](https://cmake.org/cmake/help/v3.16/command/if.html?highlight=#condition-syntax) described below. If the result is true, then the commands in the if block are executed. Otherwise, optional elseif blocks are processed in the same way. Finally, if no condition is true, commands in the optional else block are executed. 
 
+​	Compound conditions are evaluated in the following order of precedence:
+
+​	1.Innermost parentheses are evaluated firstly.
+
+​	2.Next come unary tests such as: EXISTS, COMMAND, and DEFINED.
+
+​	3.Then binary tests such as EQUAL, LESS, LESS_EQUAL, GREATER, GREATER_EQUAL, STREQUAL, STRLESS, STRLESS_EQUAL, STRGREATER, STRGREATER_EQUAL, VERSION_EQUAL, VERSION_LESS, VERSION_LESS_EQUAL, VERSION_GREATER, VERSION_GREATER_EQUAL, and MATCHES. 
+
+​	4.Then the boolean operators in the order NOT, AND, and finally OR.
+
 ## [while/endwhile](https://cmake.org/cmake/help/v3.16/command/while.html?highlight=while):
 
 ​	Evaluate a group of commands while a condition is true.
@@ -445,3 +455,55 @@ mark_as_advanced([CLEAR | FORCE] <var1> ...)
 ​	Sets the advanced/non-advanced state of the named cached variables.
 
 ​	An advanced variable will not be displayed in any of the cmake GUIs unless the `show advanced` option is on. In script mode, the advanced/non-advanced state has no effect.
+
+## [option](https://cmake.org/cmake/help/v3.16/command/option.html?highlight=option):
+
+​	Provide an option that the user can optionally select.
+
+```cmake
+option(<variable> "<help_text>" [value])
+```
+
+​	Provides an option for the user to select as ON or OFF. If no initial <value> is provided, OFF is used. If <variable> is already set as a normal variable then the command does nothing(see policy [CMP0077](https://cmake.org/cmake/help/v3.16/policy/CMP0077.html#policy:CMP0077))
+
+​	If you have options that depend on the values of other options, see the module help for [CMakeDependentOption](https://cmake.org/cmake/help/v3.16/module/CMakeDependentOption.html#module:CMakeDependentOption).
+
+## [execute_process](https://cmake.org/cmake/help/v3.16/command/execute_process.html?highlight=execute_process):
+
+​	Execute one or more child processes.
+
+```cmake
+execute_process(COMMAND <cmd1> [<arguments>]
+			COMMAND <cmd2> [<arguments>]...
+			[WORKING_DIRECTORY <directory>]
+			[TIMEOUT <seconds>]
+			[RESULT_VARIABLE <variable>]
+			[RESULTS_VARIABLE <variable>]
+			[ERROR_VARIABLE <variable>]
+            [INPUT_FILE <file>]
+            [OUTPUT_FILE <file>]
+            [ERROR_FILE <file>]
+            [OUTPUT_QUIET]
+            [ERROR_QUIET]
+            [COMMAND_ECHO <where>]
+            [OUTPUT_STRIP_TRAILING_WHITESPACE]
+            [ERROR_STRIP_TRAILING_WHITESPACE]
+            [ENCODING <name>]
+)
+```
+
+​	Runs the given sequence of one or more commands.
+
+​	Commands are executed concurrently as a pipeline, with the standard output of each process piped to the standard input of the next. A single standard error pipe is used for all processes. 
+
+## [configure_file](https://cmake.org/cmake/help/v3.16/command/configure_file.html?highlight=configure_file):
+
+​	Copy a file to another location and modify its contents.
+
+```cmake
+configure_file(<input> <output>
+				[COPYONLY] [ESCAPE_QUOTES] [@ONLY]
+				[NEWLINE_STYLE [UNIX | DOS | WIN32 | CRLF] ])
+```
+
+​	Copies an <input> file to an <output> file and substitutes variable values referenced as @VAR@ or ${VAR} in the input file content. Each variable reference will be replaced with the current value of the variable, or the empty string if the variable is not defined. Furthermore, input lines of the form.

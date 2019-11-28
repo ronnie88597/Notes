@@ -11,7 +11,8 @@ How to solve the problem that an error occurs in Obfuscator(llvm-9.0) compilatio
 ​	1.modify 'obfuscator/tools/lto/CMakeLists.txt':
 
 ```cmake
-1 set(LLVM_LINK_COMPONENTS                         2 +++  Obfuscation # --[FIX err]
+1 set(LLVM_LINK_COMPONENTS                         
+2 +++  Obfuscation # --[FIX err]
 3 +++  TransformUtils # --[FIX err]
 4   AllTargetsAsmParsers
 5   AllTargetsCodeGens
@@ -21,7 +22,8 @@ How to solve the problem that an error occurs in Obfuscator(llvm-9.0) compilatio
 ​	2.modify 'obfuscator/tools/llvm-lto/CMakeLists.txt'
 
 ```cmake
-1 set(LLVM_LINK_COMPONENTS                         2 +++  Obfuscation # --[FIX err]
+1 set(LLVM_LINK_COMPONENTS                         
+2 +++  Obfuscation # --[FIX err]
 3 +++  TransformUtils # --[FIX err]
 4   AllTargetsAsmParsers
 5   AllTargetsCodeGens
@@ -30,7 +32,8 @@ How to solve the problem that an error occurs in Obfuscator(llvm-9.0) compilatio
 ​	3.modify 'obfuscator/tools/llvm-lto2/CMakeLists.txt'
 
 ```cmake
-1 set(LLVM_LINK_COMPONENTS                         2 +++  Obfuscation # --[FIX err]
+1 set(LLVM_LINK_COMPONENTS                         
+2 +++  Obfuscation # --[FIX err]
 3 +++  TransformUtils # --[FIX err]
 4   AllTargetsAsmParsers
 5   AllTargetsCodeGens
@@ -41,7 +44,8 @@ How to solve the problem that an error occurs in Obfuscator(llvm-9.0) compilatio
 ​	4.modify 'obfuscator/unittests/IR/CMakeLists.txt'
 
 ```cmake
-1 set(LLVM_LINK_COMPONENTS                                           2 +++  Obfuscation # --[FIX err]
+1 set(LLVM_LINK_COMPONENTS                                           
+2 +++  Obfuscation # --[FIX err]
 3 +++  TransformUtils # --[FIX err]
 4   Analysis
 5   AsmParser
@@ -52,9 +56,12 @@ How to solve the problem that an error occurs in Obfuscator(llvm-9.0) compilatio
 ​	5.modify 'obfuscator/unittests/Passes/CMakeLists.txt'
 
 ```cmake
-10 set(LLVM_LINK_COMPONENTS                                           11 +++     Obfuscation # --[FIX err]
+10 set(LLVM_LINK_COMPONENTS                                           
+11 +++     Obfuscation # --[FIX err]
 12 +++     TransformUtils # --[FIX err]
-13         Support                                                   14         Passes                                                     15         Core)
+13         Support                                                   
+14         Passes                                                     
+15         Core)
 ```
 
 ​	6.Finally, create obfuscator cmake project, and make.
