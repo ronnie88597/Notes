@@ -29,10 +29,6 @@ install(CODE <code> [...])
 install(EXPORT <export-name> [...])
 ```
 
-
-
-
-
 ​	This command generates installation rules for a project. Rules specified by calls to this command within a source directory are executed in order during installation. The order across directories is not defined.
 
 ### 	The common options are:
@@ -117,6 +113,7 @@ INSTALL(TARGETS hello
 ```
 
 ./doc/CMakeLists.txt: This file is empty.
+
 Then, Enter 'build' directory, and run command as follow:
 
 ```shell

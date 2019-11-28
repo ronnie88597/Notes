@@ -5,7 +5,9 @@ How to solve the problem that an error occurs in Obfuscator(llvm-9.0) compilatio
 ![obfuscator_compilation_error img](./img/obfuscator_compilation_error.png)
 
 ​	As error information showing, 'undefined reference to llvm::createLowerSwitchPass()'. Cause of the problem is lack of llvm link-components configured.
+
 ​	The way to solve the problem is:
+
 ​	1.modify 'obfuscator/tools/lto/CMakeLists.txt':
 
 ```cmake
@@ -60,6 +62,8 @@ How to solve the problem that an error occurs in Obfuscator(llvm-9.0) compilatio
 ## Note:
 
 The way above is too complex. I think that there is a better way to solve this problem, maybe modifying other cmake-config to compile the function definition(llvm::createLowerSwitchPass) into other archive, or others. At the moment, I have not idea.
+
 If your way is better than mine, please tell me. Thanks.
+
 mailbox:18428388868@163.com
 
