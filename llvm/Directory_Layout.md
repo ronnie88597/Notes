@@ -10,7 +10,7 @@ The following is a brief introduction to code layout.
 
 ## llvm-project/clang
 
-​	[Clang][ http://clang.llvm.org/ ] is an "llvm native" C/C++/Objective-C compiler, which aims to deliver amazingly fast compiles (e.g. about [3x faster than GCC][http://clang.llvm.org/features.html#performance] when compiling Objective-C code in a debug configuration), extremely useful [error and warning messages][http://clang.llvm.org/diagnostics.html] and to provide a platform for building great source level tools. The [Clang Static Analyzer][http://clang-analyzer.llvm.org/] is a tool that automatically finds bugs in your code, and is great example of the sort of tool that can be built using the Clang frontend as library to parse C/C++ code.
+​	[Clang](http://clang.llvm.org/) is an "llvm native" C/C++/Objective-C compiler, which aims to deliver amazingly fast compiles (e.g. about [3x faster than GCC][http://clang.llvm.org/features.html#performance] when compiling Objective-C code in a debug configuration), extremely useful [error and warning messages][http://clang.llvm.org/diagnostics.html] and to provide a platform for building great source level tools. The [Clang Static Analyzer][http://clang-analyzer.llvm.org/] is a tool that automatically finds bugs in your code, and is great example of the sort of tool that can be built using the Clang frontend as library to parse C/C++ code.
 
 ## llvm-project/clang-tools-extra
 

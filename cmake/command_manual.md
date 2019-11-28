@@ -92,6 +92,8 @@ command (args...)
 
 ## include_directories:
 
+## target_include_directories:
+
 ## link_directories:
 
 ## target_link_directories:
@@ -250,3 +252,54 @@ command (args...)
 ​		endforeach()
 ​	Where <items> is a list of items that are separated by semicolon or whitespace. All commands between foreach and the matching endforeach are recorded without being invoked. Once the endforeach is evaluated, the recorded list of commands is invoked once for each item in <items>. At the beginning of each iteration the variable loop_var will be set to the value of the current item.
 ​	The commands [break()][https://cmake.org/cmake/help/v3.16/command/break.html#command:break] and [continue()][https://cmake.org/cmake/help/v3.16/command/continue.html#command:continue] provide means to escape from the normal control flow.
+
+## [cmake_policy][https://cmake.org/cmake/help/v3.16/command/cmake_policy.html#command:cmake_policy]:
+
+​	Manage CMake Policy settings. See the [cmake-policies(7)][https://cmake.org/cmake/help/v3.16/manual/cmake-policies.7.html#manual:cmake-policies(7)] manual for defined policies.
+​	Policies in CMake are used to preserve backward compatible behavior across multiple release. When a new policy is introduced, newer CMake versions will begin to warn about the backward compatible behavior. It is possible to disable the warning by explicitly requesting the OLD, or backward compatible behavior using the cmake_policy() command. It is also possible to request NEW, or non-backward compatible behavior for a policy, also avoiding explicitly on the command line with the [CMAKE_POLICY_DEFAULT_CMP<NNNN> ][https://cmake.org/cmake/help/v3.16/variable/CMAKE_POLICY_DEFAULT_CMPNNNN.html#variable:CMAKE_POLICY_DEFAULT_CMP%3CNNNN%3E]variable.
+​	A policy is a deprecation mechanism and not a reliable feature toggle. A policy should almost never be set to OLD, except to silence warnings in an otherwise frozen or stable codebase, or temporarily as part of a larger migration path. The OLD behavior of each policy is undesirable and will be replaced with an error condition in a future release.
+​	The cmake_minimum_required() command does more than report an error if a too-old version of CMake is used to build a project. It also sets all policies introduced in that CMake version or earlier to NEW behavior. To manage policies without increasing the minimum required CMake version, the if(POLICY) command may be used:
+
+```cmake
+if(POLICY CMP0990)
+  cmake_policy(SET CMP0990 NEW)
+endif()
+```
+
+​	This has the effect of using the NEW behavior with newer CMake releases which users may be using and not issuing a compatibility warning.
+​	The setting of a policy is confined in some cases to not propagate to the parent scope. For example, if the files read by the include() command or the find_package() command contain a use of cmake_policy(), that policy setting will not affect the caller by default. Both commands accept an optional NO_POLICY_SCOPE keyword to control this behavior.
+​	The CMAKE_MINIMUM_REQUIRED_VERSION variable may also be used to determine whether to report an error on use of deprecated macros or functions.
+
+### 	Setting policies by CMake Version
+
+​	While setting policies individually is supported, we encourage projects to set policies based on CMake versions:
+​	Synopsis:
+​		cmake_policy(VERSION <min> [...<max>])
+
+### 	Setting policies explicitly
+
+​	Tell CMake to use the OLD or NEW behavior for a given policy. Projects depending on the old behavior of a given policy may silence a policy warning by setting the policy state to OLD. Alternatively one may fix the project to work with the new behavior and set the policy state to NEW.
+​	Synopsis:
+​		cmake_policy(SET CMP<NNNN> NEW)
+​		cmake_policy(SET CMP<NNNN> OLD)
+​	Note: The OLD behavior of a policy is [deprecated by definition][https://cmake.org/cmake/help/v3.16/manual/cmake-policies.7.html#manual:cmake-policies(7)] and may be removed in a future verion of CMake.
+
+### 	Checking policy settings
+
+​	Synopsis:
+​		cmake_policy(GET CMP<NNNN> <variable>)
+​	Check whether a given policy is setted to OLD or NEW behavior. The output <variable> value will be OLD or NEW if the policy is setted, and empty otherwise.
+
+### 	CMake policy Stack
+
+​	Synopsis:
+​		cmake_policy(PUSH/POP)
+​	For more Information, See:https://cmake.org/cmake/help/v3.16/command/cmake_policy.html#command:cmake_policy
+
+## [mark_as_advanced][https://cmake.org/cmake/help/v3.16/command/mark_as_advanced.html?highlight=mark_as_advanced]:
+
+​	Mark cmake cached variables as advanced.
+​	Synopsis:
+​		mark_as_advanced([CLEAR | FORCE] <var1> ...)
+​	Sets the advanced/non-advanced state of the named cached variables.
+​	An advanced variable will not be displayed in any of the cmake GUIs unless the `show advanced` option is on. In script mode, the advanced/non-advanced state has no effect.
