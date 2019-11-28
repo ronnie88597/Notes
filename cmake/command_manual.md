@@ -18,19 +18,22 @@ command (args...)
 
 ### 	Synopsis:
 
-​	project(<PROJECT-NAME> [<language-name>...])
-
-​	project(<PROJECT-NAME>
-​						[VERSION <major>[.<minor>[.<patch>[.<>tweak]]]]
-​						[DESCRIPTION <project-description-string>]
-​						[HOMEPAGE_URL <url-string>]
-​						[LANGUAGES <language-name>...])
+```cmake
+project(<PROJECT-NAME> [<language-name>...])
+project(<PROJECT-NAME>
+		[VERSION <major>[.<minor>[.<patch>[.<>tweak]]]]
+		[DESCRIPTION <project-description-string>]
+		[HOMEPAGE_URL <url-string>]
+		[LANGUAGES <language-name>...])
+```
 
 ​	Sets the name of the project, and store it in the variable PROJECT-NAME. When called from the top-level CMakeLists.txt also stores the project name in the variable CMAKE_PROJECT_NAME. 
 
 ### 	Example:
 
-​	project(HELLO)
+```cmake
+project(HELLO)
+```
 
 ### Useful Tips:
 
@@ -44,31 +47,37 @@ command (args...)
 
 ### Set Normal Variable
 
-​	set(<variable> <value>...[PARENT_SCOPE])
+```cmake
+set(<variable> <value>...[PARENT_SCOPE])
+```
 
 ​	Sets the given<variable> in the current function or directory scope.
 
 ​	If the PARENT_SCOPE option is given the variable will be set in the scope above the current scope. Each new directory or function creates a new scope. This command will set the value of a variable into the parent directory or calling function(whichever is applicable to the case at hand). The previous state of the variable's value stays the same in the current scope(e.g., if it was undefined before, it is still undefined and if it had a value, it is still that value).Example:
 
-​	set(SRC_LIST main.c)
+```cmake
+set(SRC_LIST main.c)
+```
 
 ### Set Cache Entry
 
-​	set(<variable> <value>... CACHE <type> <docstring> [FORCE])
+```cmake
+set(<variable> <value>... CACHE <type> <docstring> [FORCE])
+```
 
 ​	Sets the given cache <variable> (cache entry). Since cache entries are meant to provide user-settable values this does not overwrite existing cache entries by default. Use the FORCE option to overwrite existing entries.
 
 ​	The <type> must be specified as one of:
 
-​	BOOL: Boolean ON/OFF value. [cmake-gui(1)](https://cmake.org/cmake/help/v3.16/manual/cmake-gui.1.html#manual:cmake-gui(1)) offers a checkbox.
+​	`BOOL`: Boolean ON/OFF value. [cmake-gui(1)](https://cmake.org/cmake/help/v3.16/manual/cmake-gui.1.html#manual:cmake-gui(1)) offers a checkbox.
 
-​	FILEPATH: Path to a file on disk. [cmake-gui(1)](https://cmake.org/cmake/help/v3.16/manual/cmake-gui.1.html#manual:cmake-gui(1)) offers a file dialog.
+​	`FILEPATH`: Path to a file on disk. [cmake-gui(1)](https://cmake.org/cmake/help/v3.16/manual/cmake-gui.1.html#manual:cmake-gui(1)) offers a file dialog.
 
-​	PATH: Path to a directory on disk. [cmake-gui(1)](https://cmake.org/cmake/help/v3.16/manual/cmake-gui.1.html#manual:cmake-gui(1)) offers a file dialog.
+​	`PATH`: Path to a directory on disk. [cmake-gui(1)](https://cmake.org/cmake/help/v3.16/manual/cmake-gui.1.html#manual:cmake-gui(1)) offers a file dialog.
 
-​	STRING: A line of text. [cmake-gui(1)](https://cmake.org/cmake/help/v3.16/manual/cmake-gui.1.html#manual:cmake-gui(1)) offers a text field or a drop-down selection if the STRINGS cache entry property is set.
+​	`STRING`: A line of text. [cmake-gui(1)](https://cmake.org/cmake/help/v3.16/manual/cmake-gui.1.html#manual:cmake-gui(1)) offers a text field or a drop-down selection if the STRINGS cache entry property is set.
 
-​	INTERNAL: A line of text. [cmake-gui(1)](https://cmake.org/cmake/help/v3.16/manual/cmake-gui.1.html#manual:cmake-gui(1)) dose not show internal entries. They may be used to store variables persistently across runs. Use of this type impiles FORCE.
+​	`INTERNAL`: A line of text. [cmake-gui(1)](https://cmake.org/cmake/help/v3.16/manual/cmake-gui.1.html#manual:cmake-gui(1)) dose not show internal entries. They may be used to store variables persistently across runs. Use of this type impiles FORCE.
 
 ​	The <docstring> must be specified as a line of text providing a quick summary of the option for presentation to [cmake-gui(1)](https://cmake.org/cmake/help/v3.16/manual/cmake-gui.1.html#manual:cmake-gui(1)) users.
 
@@ -76,7 +85,9 @@ command (args...)
 
 ### Set Environment variable
 
-​	set(ENV{variable} [<value>])
+```cmake
+set(ENV{variable} [<value>])
+```
 
 ​	Sets an [Environment variable](https://cmake.org/cmake/help/v3.16/manual/cmake-env-variables.7.html#manual:cmake-env-variables(7)) to the given value. Subsequent calls of $ENV{<variable>} will return the new value.
 
@@ -142,17 +153,34 @@ command (args...)
 
 ​		Reading
 
-​			`file(READ <filename> <variable> [OFFSET <offset>] [LIMIT <max-in>] [HEX])`, Read content from a file called <filename> and store it in a <variable>. Optionally start from the given <offset> and read at most <max-in> bytes. The HEX option causes data to be converted to a hexadecimal representation (useful for binary data).
+```cmake
+file(READ <filename> <variable> [OFFSET <offset>] [LIMIT <max-in>] [HEX])
+```
 
-​			`file(STRINGS <filename> <variable> [<options>...])`, Parse a list of ASCII strings from <filename> and store it in <variable>. Binary data in the file are ignored. Carriage return (\r, CR) characters are ignored. 
+​		Read content from a file called <filename> and store it in a <variable>. Optionally start from the given <offset> and read at most <max-in> bytes. The HEX option causes data to be converted to a hexadecimal representation (useful for binary data).
 
-​			`file(<HASH> <filename> <variable>)`, Compute a cryptographic hash of the content of <filename> and store it in a <variable>. The supported <HASH> algorithm names are those listed by the [string(<HASH>)](https://cmake.org/cmake/help/v3.16/command/string.html#supported-hash-algorithms) command.
+```cmake
+file(STRINGS <filename> <variable> [<options>...])
+```
 
-​			`file(TIMESTAMP <filename> <variable> [<format>] [UTC])`, Compute a string representation of the modification time of <filename> and store it in <variable>. Should the command be unable to obtain a timestamp variable will be set to the empty string("").
+​		Parse a list of ASCII strings from <filename> and store it in <variable>. Binary data in the file are ignored. Carriage return (\r, CR) characters are ignored. 
 
-​			See the [string(TIMESTAMP)](https://cmake.org/cmake/help/v3.16/command/string.html#command:string) command for documentation of the <format> and UTC options.
+```cmake
+file(<HASH> <filename> <variable>)
+```
 
-​			`file(GET_RUNTIME_DEPENDENCIES
+​	 	Compute a cryptographic hash of the content of <filename> and store it in a <variable>. The supported <HASH> algorithm names are those listed by the [string(<HASH>)](https://cmake.org/cmake/help/v3.16/command/string.html#supported-hash-algorithms) command.
+
+```cmake
+file(TIMESTAMP <filename> <variable> [<format>] [UTC])
+```
+
+​	 	Compute a string representation of the modification time of <filename> and store it in <variable>. Should the command be unable to obtain a timestamp variable will be set to the empty string("").
+
+​		See the [string(TIMESTAMP)](https://cmake.org/cmake/help/v3.16/command/string.html#command:string) command for documentation of the <format> and UTC options.
+
+```cmake
+file(GET_RUNTIME_DEPENDENCIES
   			[RESOLVED_DEPENDENCIES_VAR <deps_var>]
   			[UNRESOLVED_DEPENDENCIES_VAR <unresolved_deps_var>]
   			[CONFLICTING_DEPENDENCIES_PREFIX <conflicting_deps_prefix>]
@@ -165,50 +193,65 @@ command (args...)
   			[PRE_EXCLUDE_REGEXES [<regexes>...]]
   			[POST_INCLUDE_REGEXES [<regexes>...]]
   			[POST_EXCLUDE_REGEXES [<regexes>...]]
-  			)`, Recursively get the list of libraries depended on by the given files. 
+  			)
+```
+
+​			Recursively get the list of libraries depended on by the given files. 
 
 ​		Writing
 
-​			`file({WRITE | APPEND} <filename> <content>...)`, Write <content> into a file called <filename>. If the file dose not exist, it will be created. If the file already exists, WRITE mode will overwrite it and APPEND mode will append to the end. Any directories in the path specified by <filename> that do not exist will be created. If the file is a build input, use the [configure_file()](https://cmake.org/cmake/help/v3.16/command/configure_file.html#command:configure_file) command to update the file only when its content changes.
+```cmake
+file({WRITE | APPEND} <filename> <content>...)
+```
 
-​			`file({TOUCH | TOUCH_NOCREATE} [<file>...])`, create a file with no content if it does not yet exist. If the file already exists, its access and/or modification will be updated to the time when the function call is executed. Use TOUCH_NOCREATE to touch a file if it exists but not create it. If a file does not exist it will be silently ignored. With TOUCH and TOUCH_NOCREATE the contents of an existing file will not be modified.
+​			Write <content> into a file called <filename>. If the file dose not exist, it will be created. If the file already exists, WRITE mode will overwrite it and APPEND mode will append to the end. Any directories in the path specified by <filename> that do not exist will be created. If the file is a build input, use the [configure_file()](https://cmake.org/cmake/help/v3.16/command/configure_file.html#command:configure_file) command to update the file only when its content changes.
 
-​			`file(GENERATE OUTPUT <output-file> [...])`, generate an output file for each build configuration supported by the current [CMake Generator](https://cmake.org/cmake/help/v3.16/manual/cmake-generators.7.html#manual:cmake-generators(7)). Evaluate [generator expression](https://cmake.org/cmake/help/v3.16/manual/cmake-generator-expressions.7.html#manual:cmake-generator-expressions(7)) from the input content to produce the output content. 
+```cmake
+file({TOUCH | TOUCH_NOCREATE} [<file>...])
+```
+
+​			Create a file with no content if it does not yet exist. If the file already exists, its access and/or modification will be updated to the time when the function call is executed. Use TOUCH_NOCREATE to touch a file if it exists but not create it. If a file does not exist it will be silently ignored. With TOUCH and TOUCH_NOCREATE the contents of an existing file will not be modified.
+
+```cmake
+file(GENERATE OUTPUT <output-file> [...])
+```
+
+
+
+​			Generate an output file for each build configuration supported by the current [CMake Generator](https://cmake.org/cmake/help/v3.16/manual/cmake-generators.7.html#manual:cmake-generators(7)). Evaluate [generator expression](https://cmake.org/cmake/help/v3.16/manual/cmake-generator-expressions.7.html#manual:cmake-generator-expressions(7)) from the input content to produce the output content. 
 
 ​		Filesystem
 
-​			`file({GLOB | GLOB_RECURSE} <out-var> [...] [<globbing-expr>...])`
-
-​			`file(RENAME <oldname> <newname>)`
-
-​			`file({REMOVE | REMOVE_RECURSE} [<files>...])`
-
-​			`file(MAKE_DIRECTORY [<dir>...])`
-
-​			`file({COPY | INSTALL} <file>... DESTINATION <dir> [...])`
-
-​			`file(SIZE <filename> <out-var>)`
-
-​			`file(READ_SYMLINK <linkname> <out-var>)`
-
-​			`file(CREATE_LINK <original> <linkname> [...])`
+```cmake
+file({GLOB | GLOB_RECURSE} <out-var> [...] [<globbing-expr>...])
+file(RENAME <oldname> <newname>)
+file({REMOVE | REMOVE_RECURSE} [<files>...])
+file(MAKE_DIRECTORY [<dir>...])
+file({COPY | INSTALL} <file>... DESTINATION <dir> [...])
+file(SIZE <filename> <out-var>)
+file(READ_SYMLINK <linkname> <out-var>)
+file(CREATE_LINK <original> <linkname> [...])
+```
 
 ​		Path Conversion
 
-​			`file(RELATIVE_PATH <out-var> <directory> <file>)`
-
-​			`
-​			`file({TO_CMAKE_PATH | TO_NATIVE_PATH} <path> <out-var>)`
+```cmake
+file(RELATIVE_PATH <out-var> <directory> <file>)
+file({TO_CMAKE_PATH | TO_NATIVE_PATH} <path> <out-var>)
+```
 
 ​		Transfer
 
-​			`file(DOWNLOAD <url> <file> [...])`
-
-​			`file(UPLOAD <file> <url> [...])`
+```cmake
+file(DOWNLOAD <url> <file> [...])
+file(UPLOAD <file> <url> [...])
+```
 
 ​		Locking
 
-​			`file(LOCK <path> [...])`
+```cmake
+file(LOCK <path> [...])
+```
 
 ## include:
 
@@ -216,13 +259,12 @@ command (args...)
 
 ​	Synopsis:
 
-​		include(<file|module> 
-
-​					[OPTIONAL] 
-
-​					[RESULT_VARIABLE <var>]
-
-​					[NO_POLITY_SCOPE])
+```cmake
+include(<file|module> 
+		[OPTIONAL] 
+		[RESULT_VARIABLE <var>]
+		[NO_POLITY_SCOPE])
+```
 
 ​	Variable reads and writes access the scope of the caller (dynamic scoping). If OPTIONAL is present, then no error is raised if the file does not exist. If RESULT_VARIABLE is given the variable <var> will be set to the full filename which has been included or NOTFOUND if it failed.
 
@@ -238,39 +280,30 @@ command (args...)
 
 ​		A short-hand signature is:
 
-​		`find_file(<var> name1 [path1 path2 ...])`
+```cmake
+find_file(<var> name1 [path1 path2 ...])
+```
 
 ​		The general signature is:
 
-​		find_file(<var>
-
-​					name | NAMES name1 [name2 ...]
-
-​					[HINTS path1 [path2 ... ENV var]]
-
-​					[PATHS path1 [path2 ... ENV var]]
-
-​					[PATH_SUFFIXES suffix1 [suffix2 ...]]
-
-​					[DOC "cache documentation string"]
-
-​					[NO_DEFAULT_PATH]
-
-​					[NO_PACKAGE_ROOT_PATH]
-
-​					[NO_CMAKE_PATH]
-
-​					[NO_CMAKE_ENVIRONMENT_PATH]
-
-​					[NO_SYSTEM_ENVIRONMENT_PATH]
-
-​					[NO_CMAKE_SYSTEM_PATH]
-
-​					[CMAKE_FIND_ROOT_PATH_BOTH |  ONLY_CMAKE_FIND_ROOT_PATH |
-
-​					NO_CMAKE_FIND_ROOT_PATH]
-
+```cmake
+find_file(<var>
+		name | NAMES name1 [name2 ...]
+		[HINTS path1 [path2 ... ENV var]]
+		[PATHS path1 [path2 ... ENV var]]
+		[PATH_SUFFIXES suffix1 [suffix2 ...]]	
+		[DOC "cache documentation string"]
+		[NO_DEFAULT_PATH]
+		[NO_PACKAGE_ROOT_PATH]
+		[NO_CMAKE_PATH]
+		[NO_CMAKE_ENVIRONMENT_PATH]
+		[NO_SYSTEM_ENVIRONMENT_PATH]
+		[NO_CMAKE_SYSTEM_PATH]
+		[CMAKE_FIND_ROOT_PATH_BOTH |  
+		ONLY_CMAKE_FIND_ROOT_PATH |
+		NO_CMAKE_FIND_ROOT_PATH]
 )
+```
 
 ​	A cache entry named by <var> is created to store the result of this command. If the full path to a file is found the result is stored in the variable and the search will not be repeated unless the variable is cleared. If nothing is found, the result will be <var>-NOTFOUND, and the search will be attempted again the next time find_file is invoked with the same variable.
 
@@ -289,19 +322,15 @@ command (args...)
 
 ​	Synopsis:
 
-​		if(<condition>)
-
-​			<commands>
-
-​		elseif(<condition>) # optional block, can be repeated
-
-​			<commands>
-
-​		else()              # optional block
-
-​			<commands>
-
-​		endif()
+```cmake
+if(<condition>)
+	<commands>
+elseif(<condition>) # optional block, can be repeated
+	<commands>
+else()              # optional block
+	<commands>
+endif()
+```
 
 ​	Evaluates the condition argument of the if clause according to the [Condition syntax](https://cmake.org/cmake/help/v3.16/command/if.html?highlight=#condition-syntax) described below. If the result is true, then the commands in the if block are executed. Otherwise, optional elseif blocks are processed in the same way. Finally, if no condition is true, commands in the optional else block are executed. 
 
@@ -311,11 +340,11 @@ command (args...)
 
 ​	Synopsis:
 
-​		while(<condition>)
-
-​			<commands>
-
-​		endwhile
+```cmake
+while(<condition>)
+	<commands>
+endwhile()
+```
 
 ​	All command between while and the matching endwhile() are recorded without being invoked. Once the endwhile() is evaluated, the recorded list of commands is invoked as long as the <condition> is true.
 
@@ -329,11 +358,11 @@ command (args...)
 
 ​	Synopsis:
 
-​		foreach(<loop_var> <items>)
-
-​			<commands>
-
-​		endforeach()
+```cmake
+foreach(<loop_var> <items>)
+	<commands>
+endforeach()
+```
 
 ​	Where <items> is a list of items that are separated by semicolon or whitespace. All commands between foreach and the matching endforeach are recorded without being invoked. Once the endforeach is evaluated, the recorded list of commands is invoked once for each item in <items>. At the beginning of each iteration the variable loop_var will be set to the value of the current item.
 
@@ -366,7 +395,9 @@ endif()
 ​	While setting policies individually is supported, we encourage projects to set policies based on CMake versions:
 ​	Synopsis:
 
-​		cmake_policy(VERSION <min> [...<max>])
+```cmake
+cmake_policy(VERSION <min> [...<max>])
+```
 
 ### 	Setting policies explicitly
 
@@ -374,9 +405,10 @@ endif()
 
 ​	Synopsis:
 
-​		cmake_policy(SET CMP<NNNN> NEW)
-
-​		cmake_policy(SET CMP<NNNN> OLD)
+```cmake
+cmake_policy(SET CMP<NNNN> NEW)
+cmake_policy(SET CMP<NNNN> OLD)
+```
 
 ​	Note: The OLD behavior of a policy is [deprecated by definition](https://cmake.org/cmake/help/v3.16/manual/cmake-policies.7.html#manual:cmake-policies(7)) and may be removed in a future verion of CMake.
 
@@ -384,7 +416,9 @@ endif()
 
 ​	Synopsis:
 
-​		cmake_policy(GET CMP<NNNN> <variable>)
+```cmake
+cmake_policy(GET CMP<NNNN> <variable>)
+```
 
 ​	Check whether a given policy is setted to OLD or NEW behavior. The output <variable> value will be OLD or NEW if the policy is setted, and empty otherwise.
 
@@ -392,7 +426,9 @@ endif()
 
 ​	Synopsis:
 
-​		cmake_policy(PUSH/POP)
+```cmake
+cmake_policy(PUSH/POP)
+```
 
 ​	For more Information, See:https://cmake.org/cmake/help/v3.16/command/cmake_policy.html#command:cmake_policy
 
@@ -402,7 +438,9 @@ endif()
 
 ​	Synopsis:
 
-​		mark_as_advanced([CLEAR | FORCE] <var1> ...)
+```cmake
+mark_as_advanced([CLEAR | FORCE] <var1> ...)
+```
 
 ​	Sets the advanced/non-advanced state of the named cached variables.
 
