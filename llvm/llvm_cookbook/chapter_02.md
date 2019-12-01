@@ -39,3 +39,8 @@
     For details on how Codegen() functions for C++ in clang, refer to http://llvm.org/viewvc/llvm-project/cfe/trunk/lib/CodeGen/
 
 12. Adding IR optimization support
+
+    `Q:The are llvm::FunctionPassManager and legacy::FunctionPassManager, so why do we use legacy::FunctionPassManager other than llvm::FunctionPassManager?`
+
+    `Q:What the difference betweenllvm::FunctionPassManager and legacy::FunctionPassManager? `
+

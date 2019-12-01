@@ -8,6 +8,12 @@
 #include <map>
 #include <string>
 #include <vector>
+#include <llvm/IR/LegacyPassManager.h>
+#include <llvm/Analysis/BasicAliasAnalysis.h>
+#include <llvm/Transforms/InstCombine/InstCombine.h>
+#include <llvm/Transforms/Scalar.h>
+#include <llvm/Transforms/Scalar/GVN.h>
+#include <llvm/Pass.h>
 
 using namespace llvm;
 
@@ -314,7 +320,10 @@ static LLVMContext Context;
 static IRBuilder<> Builder(Context);
 
 static Module *ModuleInstPrt = new Module("my compiler",
-Context);
+                                          Context);
+
+
+static legacy::FunctionPassManager *GlobalFuncPM = new legacy::FunctionPassManager(ModuleInstPrt);
 
 static std::map<std::string, Value *> Named_Values;
 
@@ -413,6 +422,7 @@ Function *FunctionDefnAST::Codegen() {
     if (Value *RetVal = Body->Codegen()) {
         Builder.CreateRet(RetVal);
         verifyFunction(*TheFunction);
+        GlobalFuncPM->run(*TheFunction);
         return TheFunction;
     }
 
@@ -469,6 +479,16 @@ int main(int argc, char *argv[]) {
         printf("Could not open file\n");
         exit(1);
     }
+    // optimizor
+    GlobalFuncPM->add(createBasicAAWrapperPass());
+    GlobalFuncPM->add(createInstructionCombiningPass());
+    GlobalFuncPM->add(createReassociatePass());
+    GlobalFuncPM->add(createGVNPass());
+    GlobalFuncPM->doInitialization();
+
+
+
+
 
     getNextToken();
     Driver();

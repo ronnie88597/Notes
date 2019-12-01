@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/chapter_02.dir/toy.cpp.o"
-  "bin/chapter_02"
   "bin/chapter_02.pdb"
+  "bin/chapter_02"
 )
 
 # Per-language clean rules from dependency scanning.
