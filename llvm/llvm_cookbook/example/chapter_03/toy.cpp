@@ -23,17 +23,20 @@
 using namespace llvm;
 
 enum Token_Type {
-    EOF_TOKEN = 0,
-    DEF_TOKEN = 1,
-    IDENTIFIER_TOKEN = 2,
-    NUMERIC_TOKEN = 3,
+    EOF_TOKEN = 1000,
+    DEF_TOKEN = 1001,
+    IDENTIFIER_TOKEN = 1002,
+    NUMERIC_TOKEN = 1003,
 
-    IF_TOKEN = 4,
-    THEN_TOKEN = 5,
-    ELSE_TOKEN = 6,
+    IF_TOKEN = 1004,
+    THEN_TOKEN = 1005,
+    ELSE_TOKEN = 1006,
 
-    FOR_TOKEN = 7,
-    IN_TOKEN = 8
+    FOR_TOKEN = 1007,
+    IN_TOKEN = 1008,
+
+    BINARY_TOKEN = 1009,
+    UNARY_TOKEN = 1010
 };
 
 FILE *file;
@@ -65,6 +68,12 @@ static int get_token() {
             return FOR_TOKEN;
         if (Identifier_string == "in")
             return IN_TOKEN;
+
+        if (Identifier_string == "binary")
+            return BINARY_TOKEN;
+
+        if (Identifier_string == "unary")
+            return UNARY_TOKEN;
 
         return IDENTIFIER_TOKEN;
     }
@@ -154,12 +163,31 @@ namespace {
     class FunctionDeclAST {
         std::string Func_Name;
         std::vector<std::string> Arguments;
+        bool isOperator;
+        unsigned Precedence;
 
     public:
         FunctionDeclAST(const std::string &name,
-                        const std::vector<std::string> &args)
+                        const std::vector<std::string> &args,
+                        bool isoperator = false,
+                        unsigned prec = 0)
                 : Func_Name(name),
-                  Arguments(args) {};
+                  Arguments(args),
+                  isOperator(isoperator),
+                  Precedence(prec + 100) {};
+
+        bool isUnaryOp() const { return isOperator && Arguments.size() == 1; }
+
+        bool isBinaryOp() const { return isOperator && Arguments.size() == 2; }
+
+        char getOperatorName() const {
+            assert(isUnaryOp() || isBinaryOp());
+            return Func_Name[Func_Name.size() - 1];
+        }
+
+        unsigned getBinaryPrecedence() const {
+            return Precedence;
+        }
 
         Function *Codegen();
     };
@@ -207,6 +235,16 @@ namespace {
                 Body(body) {}
 
         Value *Codegen() override;
+    };
+
+    class ExprUnaryAST : public BaseAST {
+        char Opcode;
+        BaseAST *Operand;
+    public:
+        ExprUnaryAST(char opcode, BaseAST *operand) :
+                Opcode(opcode), Operand(operand) {}
+
+        virtual Value *Codegen();
     };
 } // namespace
 
@@ -356,6 +394,20 @@ static BaseAST *For_parser() {
                           Body);
 }
 
+static BaseAST *Base_Parser();
+
+static BaseAST *Unary_parser() {
+    if (!isascii(CurrentToken) || CurrentToken == '(' ||
+        CurrentToken == ',')
+        return Base_Parser();
+    int Op = CurrentToken;
+    getNextToken();
+    if (BaseAST *Operand = Unary_parser()) {
+        return new ExprUnaryAST(Op, Operand);
+    }
+    return nullptr;
+};
+
 static BaseAST *Base_Parser() {
     switch (CurrentToken) {
         default:
@@ -383,7 +435,7 @@ static BaseAST *binary_op_parser(int Old_Prec, BaseAST *LHS) {
         int BinOp = CurrentToken;
         getNextToken();
 
-        BaseAST *RHS = Base_Parser();
+        BaseAST *RHS = Unary_parser();
         if (!RHS)
             return nullptr;
 
@@ -399,31 +451,78 @@ static BaseAST *binary_op_parser(int Old_Prec, BaseAST *LHS) {
 }
 
 static BaseAST *expression_parser() {
-    BaseAST *LHS = Base_Parser();
+    BaseAST *LHS = Unary_parser();
     if (!LHS)
         return nullptr;
     return binary_op_parser(0, LHS);
 }
 
 static FunctionDeclAST *func_decl_parser() {
-    if (CurrentToken != IDENTIFIER_TOKEN)
+    std::string Funcation_Name = Identifier_string;
+    unsigned Kind = 0;
+    unsigned BinaryPrecedence = 30;
+
+    switch (CurrentToken) {
+        default:
+            return nullptr;
+        case IDENTIFIER_TOKEN:
+            Funcation_Name = Identifier_string;
+            Kind = 0;
+            getNextToken();
+            break;
+        case UNARY_TOKEN:
+            getNextToken();
+            if (!isascii(CurrentToken)) {
+                return nullptr;
+            }
+            Funcation_Name = "unary";
+            Funcation_Name += (char) CurrentToken;
+            Kind = 1;
+            getNextToken();
+            break;
+        case BINARY_TOKEN:
+            getNextToken();
+            if (!isascii(CurrentToken)) {
+                return nullptr;
+            }
+            Funcation_Name = "binary";
+            Funcation_Name += (char) CurrentToken;
+            Kind = 2;
+            getNextToken();
+
+            if (CurrentToken == NUMERIC_TOKEN) {
+                if (Numeric_Val < 1 || Numeric_Val > 100) {
+                    return nullptr;
+                }
+                BinaryPrecedence = (unsigned) Numeric_Val;
+                getNextToken();
+            }
+            break;
+    }
+    if (CurrentToken != '(') {
         return nullptr;
-
-    std::string FnName = Identifier_string;
-    getNextToken();
-
-    if (CurrentToken != '(')
-        return nullptr;
-
+    }
     std::vector<std::string> Function_Argument_Names;
-    while (getNextToken() == IDENTIFIER_TOKEN)
+    while (getNextToken() == IDENTIFIER_TOKEN) {
         Function_Argument_Names.push_back(Identifier_string);
-    if (CurrentToken != ')')
+    }
+    if (CurrentToken != ')') {
         return nullptr;
-
+    }
     getNextToken();
 
-    return new FunctionDeclAST(FnName, Function_Argument_Names);
+    if (Kind && Function_Argument_Names.size() != Kind) {
+        llvm::outs() << "Function_Argument_Names.size() != Kind.   "
+                     << Function_Argument_Names.size()
+                     << "!="
+                     << Kind
+                     << "\n";
+        return nullptr;
+    }
+    return new FunctionDeclAST(Funcation_Name,
+                               Function_Argument_Names,
+                               Kind != 0,
+                               BinaryPrecedence);
 }
 
 static FunctionDefnAST *func_defn_parser() {
@@ -493,8 +592,11 @@ Value *BinaryAST::Codegen() {
         case '<':
             return Builder.CreateICmpULT(L, R, "cmptmp");
         default:
-            return nullptr;
+            break;
     }
+    Function *F = ModuleInstPrt->getFunction(std::string("binary") + Bin_Operator);
+    Value *Ops[2] = {L, R};
+    return Builder.CreateCall(F, Ops, "binop");
 }
 
 Value *FunctionCallAST::Codegen() {
@@ -551,8 +653,12 @@ Function *FunctionDefnAST::Codegen() {
     Named_Values.clear();
 
     Function *TheFunction = Func_Decl->Codegen();
-    if (TheFunction == 0)
+    if (!TheFunction)
         return nullptr;
+
+    if (Func_Decl->isBinaryOp()) {
+        OperatorPrecedence[Func_Decl->getOperatorName()] = Func_Decl->getBinaryPrecedence();
+    }
 
     BasicBlock *BB = BasicBlock::Create(
             Context,
@@ -577,9 +683,12 @@ Value *ExprIfAST::Codegen() {
         return nullptr;
     }
 
-//    Condtn = Builder.CreateICmpNE(Condtn,
-//                                  Builder.getInt32(0),
-//                                  "ifcond");
+    if (Condtn->getType() == Type::getInt32Ty(Context)) {
+        Condtn = Builder.CreateICmpNE(Condtn,
+                                      Builder.getInt32(0),
+                                      "ifcond");
+    }
+
     Function *TheFunc = Builder.GetInsertBlock()->getParent();
     BasicBlock *ThenBB =
             BasicBlock::Create(Context, "then", TheFunc);
@@ -682,6 +791,17 @@ Value *ExprForAST::Codegen() {
         Named_Values.erase(Var_Name);
     }
     return Constant::getNullValue(Type::getInt32Ty(Context));
+}
+
+Value *ExprUnaryAST::Codegen() {
+    Value *OperandV = Operand->Codegen();
+    if (!OperandV) return nullptr;
+
+    Function *F =
+            ModuleInstPrt->getFunction(
+                    std::string("unary") + Opcode);
+    if (!F) { return nullptr; }
+    return Builder.CreateCall(F, OperandV, "unop");
 }
 
 static void HandleDefn() {

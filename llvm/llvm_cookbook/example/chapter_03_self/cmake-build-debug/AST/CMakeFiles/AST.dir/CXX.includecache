@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/baseAST.h
+string
+-
+
+/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/AST/baseAST.cpp
+baseAST.h
+/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/AST/baseAST.h
+

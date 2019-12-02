@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../lib/libAST.a  CMakeFiles/AST.dir/baseAST.cpp.o
+/usr/bin/ranlib ../lib/libAST.a

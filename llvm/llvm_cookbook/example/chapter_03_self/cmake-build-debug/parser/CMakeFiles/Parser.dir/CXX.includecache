@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/parser.h
+string
+-
+
+/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/parser/parser.cpp
+parser.h
+/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/parser/parser.h
+

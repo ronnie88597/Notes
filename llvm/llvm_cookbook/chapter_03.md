@@ -6,8 +6,14 @@
 
 2. Generating code for loops
 
+   To get a detailed overview of how loops are handled for C++ in Clang, visit http://llvm.org/viewvc/llvm-project/cfe/trunk/lib/Parse/ParseExprCXX.cpp
+
 3. Handling user-defined operators -- binary operators
 
+   For detailed examples on handling other binary operators, refer to http://llvm.org/docs/tutorial/LangImpl6.html
+
 4. Handling user-defined operators -- unary operators
+
+   To learn more detailed implementation of unary operators, visit http://llvm.org/docs/tutorial/LangImpl6.html
 
 5. Adding JIT support

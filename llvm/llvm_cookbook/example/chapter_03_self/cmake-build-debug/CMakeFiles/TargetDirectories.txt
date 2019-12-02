@@ -1,0 +1,12 @@
+/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/cmake-build-debug/CMakeFiles/main.dir
+/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/cmake-build-debug/AST/CMakeFiles/rebuild_cache.dir
+/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/cmake-build-debug/AST/CMakeFiles/AST.dir
+/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/cmake-build-debug/AST/CMakeFiles/edit_cache.dir
+/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/cmake-build-debug/parser/CMakeFiles/rebuild_cache.dir
+/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/cmake-build-debug/parser/CMakeFiles/Parser.dir
+/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/cmake-build-debug/parser/CMakeFiles/edit_cache.dir
+/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/cmake-build-debug/fd_stream/CMakeFiles/rebuild_cache.dir
+/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/cmake-build-debug/fd_stream/CMakeFiles/FdStream.dir
+/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/cmake-build-debug/fd_stream/CMakeFiles/edit_cache.dir

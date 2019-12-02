@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/main.dir/common_def.cpp.o CMakeFiles/main.dir/main.cpp.o  -o bin/main  -L/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/cmake-build-debug/lib -Wl,-rpath,/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/cmake-build-debug/lib lib/libAST.a lib/libParser.a lib/libFdStream.a 
