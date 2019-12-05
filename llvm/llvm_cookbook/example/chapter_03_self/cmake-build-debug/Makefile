@@ -150,17 +150,30 @@ Parser/fast:
 .PHONY : Parser/fast
 
 #=============================================================================
-# Target rules for targets named FdStream
+# Target rules for targets named lex
 
 # Build rule for target.
-FdStream: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 FdStream
-.PHONY : FdStream
+lex: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 lex
+.PHONY : lex
 
 # fast build rule for target.
-FdStream/fast:
-	$(MAKE) -f fd_stream/CMakeFiles/FdStream.dir/build.make fd_stream/CMakeFiles/FdStream.dir/build
-.PHONY : FdStream/fast
+lex/fast:
+	$(MAKE) -f lexer/CMakeFiles/lex.dir/build.make lexer/CMakeFiles/lex.dir/build
+.PHONY : lex/fast
+
+#=============================================================================
+# Target rules for targets named lexer_test
+
+# Build rule for target.
+lexer_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 lexer_test
+.PHONY : lexer_test
+
+# fast build rule for target.
+lexer_test/fast:
+	$(MAKE) -f unittest/lexer_test/CMakeFiles/lexer_test.dir/build.make unittest/lexer_test/CMakeFiles/lexer_test.dir/build
+.PHONY : lexer_test/fast
 
 common_def.o: common_def.cpp.o
 
@@ -227,7 +240,8 @@ help:
 	@echo "... edit_cache"
 	@echo "... AST"
 	@echo "... Parser"
-	@echo "... FdStream"
+	@echo "... lex"
+	@echo "... lexer_test"
 	@echo "... common_def.o"
 	@echo "... common_def.i"
 	@echo "... common_def.s"

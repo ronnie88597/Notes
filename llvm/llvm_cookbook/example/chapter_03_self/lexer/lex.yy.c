@@ -351,8 +351,8 @@ static void yynoreturn yy_fatal_error ( const char* msg  );
 	(yy_hold_char) = *yy_cp; \
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
-#define YY_NUM_RULES 15
-#define YY_END_OF_BUFFER 16
+#define YY_NUM_RULES 24
+#define YY_END_OF_BUFFER 25
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -360,13 +360,13 @@ struct yy_trans_info
 	flex_int32_t yy_verify;
 	flex_int32_t yy_nxt;
 	};
-static const flex_int16_t yy_accept[48] =
+static const flex_int16_t yy_accept[50] =
     {   0,
-        0,    0,   16,   15,    3,    1,    2,    4,   14,   13,
-       13,   13,   13,   13,   13,   14,   13,   13,   13,   13,
-       13,   13,   13,   13,   13,   13,   13,   13,   13,    6,
-       13,   13,    5,   13,   13,   13,    9,   10,   13,    8,
-        7,   13,   13,   11,   13,   12,    0
+        0,    0,   25,   24,   10,   11,    3,    1,   12,    2,
+        4,   23,    7,    6,   21,   21,   21,   21,   21,   21,
+        8,    9,    5,   22,   23,   21,   21,   21,   21,   21,
+       14,   21,   21,   22,   13,   21,   21,   21,   17,   18,
+       21,   16,   15,   21,   21,   19,   21,   20,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
@@ -374,17 +374,17 @@ static const YY_CHAR yy_ec[256] =
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    2,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    3,    4,    1,    5,    1,    6,    7,    7,    7,
-        7,    7,    7,    7,    7,    7,    7,    1,    1,    1,
-        1,    1,    1,    1,    8,    8,    8,    8,    8,    8,
-        8,    8,    8,    8,    8,    8,    8,    8,    8,    8,
-        8,    8,    8,    8,    8,    8,    8,    8,    8,    8,
-        1,    1,    1,    1,    9,    1,   10,    8,    8,   11,
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    2,
+        3,    4,    5,    6,    7,    8,    9,   10,   10,   10,
+       10,   10,   10,   10,   10,   10,   10,    1,   11,    1,
+       12,    1,    1,    1,   13,   13,   13,   13,   13,   13,
+       13,   13,   13,   13,   13,   13,   13,   13,   13,   13,
+       13,   13,   13,   13,   13,   13,   13,   13,   13,   13,
+        1,    1,    1,    1,   13,    1,   14,   13,   13,   15,
 
-       12,   13,   14,    8,   15,    8,    8,   16,    8,   17,
-       18,    8,    8,   19,   20,   21,    8,    8,    8,    8,
-        8,    8,    1,    1,    1,    1,    1,    1,    1,    1,
+       16,   17,   18,   13,   19,   13,   13,   20,   13,   21,
+       22,   13,   13,   23,   24,   25,   13,   13,   13,   13,
+       13,   13,   26,    1,   27,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -401,53 +401,55 @@ static const YY_CHAR yy_ec[256] =
         1,    1,    1,    1,    1
     } ;
 
-static const YY_CHAR yy_meta[22] =
+static const YY_CHAR yy_meta[28] =
     {   0,
-        1,    1,    1,    1,    1,    1,    2,    2,    2,    2,
-        2,    2,    2,    2,    2,    2,    2,    2,    2,    2,
-        2
+        1,    1,    1,    1,    1,    1,    1,    1,    1,    2,
+        1,    1,    2,    2,    2,    2,    2,    2,    2,    2,
+        2,    2,    2,    2,    2,    1,    1
     } ;
 
-static const flex_int16_t yy_base[49] =
+static const flex_int16_t yy_base[51] =
     {   0,
-        0,    0,   54,   55,   55,   55,   55,   55,   46,    0,
-       40,   35,    6,   10,   29,   42,    0,   35,   10,   29,
-       27,   43,   23,   24,   40,   28,   28,   29,   36,   55,
-       35,   21,   55,   33,   32,   12,   55,   55,   15,   55,
-       55,   29,   15,   55,   26,   55,   55,   24
+        0,    0,   57,   58,   58,   58,   58,   58,   58,   58,
+       47,   20,   58,   58,    0,   39,   34,    9,   15,   28,
+       58,   58,   58,   42,   25,    0,   34,   15,   28,   26,
+        0,   23,   24,   36,    0,   28,   28,   29,    0,    0,
+       23,    0,    0,   16,   19,    0,   20,    0,   58,   35
     } ;
 
-static const flex_int16_t yy_def[49] =
+static const flex_int16_t yy_def[51] =
     {   0,
-       47,    1,   47,   47,   47,   47,   47,   47,   47,   48,
-       48,   48,   48,   48,   48,   47,   48,   48,   48,   48,
-       48,   48,   48,   48,   48,   48,   48,   48,   48,   47,
-       48,   48,   47,   48,   48,   48,   47,   47,   48,   47,
-       47,   48,   48,   47,   48,   47,    0,   47
+       49,    1,   49,   49,   49,   49,   49,   49,   49,   49,
+       49,   49,   49,   49,   50,   50,   50,   50,   50,   50,
+       49,   49,   49,   49,   49,   50,   50,   50,   50,   50,
+       50,   50,   50,   49,   50,   50,   50,   50,   50,   50,
+       50,   50,   50,   50,   50,   50,   50,   50,    0,   49
     } ;
 
-static const flex_int16_t yy_nxt[77] =
+static const flex_int16_t yy_nxt[86] =
     {   0,
-        4,    4,    5,    6,    7,    8,    9,   10,    4,   10,
-       11,   12,   13,   10,   14,   10,   10,   10,   10,   15,
-       10,   20,   22,   21,   26,   17,   23,   46,   45,   27,
-       44,   43,   42,   41,   40,   39,   38,   37,   36,   35,
-       34,   33,   32,   31,   30,   29,   28,   25,   16,   24,
-       19,   18,   16,   47,    3,   47,   47,   47,   47,   47,
-       47,   47,   47,   47,   47,   47,   47,   47,   47,   47,
-       47,   47,   47,   47,   47,   47
+        4,    5,    6,    7,    8,    9,   10,    4,   11,   12,
+       13,   14,   15,   15,   16,   17,   18,   15,   19,   15,
+       15,   15,   15,   20,   15,   21,   22,   24,   29,   25,
+       30,   31,   24,   36,   25,   32,   26,   48,   37,   47,
+       46,   45,   44,   43,   42,   34,   41,   40,   39,   38,
+       35,   34,   33,   28,   27,   23,   49,    3,   49,   49,
+       49,   49,   49,   49,   49,   49,   49,   49,   49,   49,
+       49,   49,   49,   49,   49,   49,   49,   49,   49,   49,
+       49,   49,   49,   49,   49
     } ;
 
-static const flex_int16_t yy_chk[77] =
+static const flex_int16_t yy_chk[86] =
     {   0,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,   13,   14,   13,   19,   48,   14,   45,   43,   19,
-       42,   39,   36,   35,   34,   32,   31,   29,   28,   27,
-       26,   25,   24,   23,   22,   21,   20,   18,   16,   15,
-       12,   11,    9,    3,   47,   47,   47,   47,   47,   47,
-       47,   47,   47,   47,   47,   47,   47,   47,   47,   47,
-       47,   47,   47,   47,   47,   47
+        1,    1,    1,    1,    1,    1,    1,   12,   18,   12,
+       18,   19,   25,   28,   25,   19,   50,   47,   28,   45,
+       44,   41,   38,   37,   36,   34,   33,   32,   30,   29,
+       27,   24,   20,   17,   16,   11,    3,   49,   49,   49,
+       49,   49,   49,   49,   49,   49,   49,   49,   49,   49,
+       49,   49,   49,   49,   49,   49,   49,   49,   49,   49,
+       49,   49,   49,   49,   49
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -464,29 +466,11 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "lexer.l"
-#line 2 "lexer.l"
-    enum Token_TYPE{
-            ADD_TOKEN = 901,
-            SUB_TOKEN = 902,
-            MUL_TOKEN = 903,
-            DIV_TOKEN = 904,
-
-            ID_TOKEN = 1001,
-            NUM_TOKEN = 1002,
-
-            DEF_TOKEN = 2001,
-            IF_TOKEN = 2002,
-            ELSE_TOKEN = 2003,
-            ELIF_TOKEN = 2004,
-            FOR_TOKEN = 2005,
-
-            INT_TOKEN = 3001,
-            FLOAT_TOKEN = 3002,
-            STR_TOKEN = 3003
-    }
-#line 489 "lex.yy.c"
-#line 490 "lex.yy.c"
+#line 1 "/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/lexer/lexer.l"
+#line 2 "/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/lexer/lexer.l"
+#include "lex.yy.h"
+#line 473 "lex.yy.c"
+#line 474 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -703,9 +687,9 @@ YY_DECL
 		}
 
 	{
-#line 22 "lexer.l"
+#line 4 "/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/lexer/lexer.l"
 
-#line 709 "lex.yy.c"
+#line 693 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -732,13 +716,13 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 48 )
+				if ( yy_current_state >= 50 )
 					yy_c = yy_meta[yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 55 );
+		while ( yy_base[yy_current_state] != 58 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -764,80 +748,125 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 23 "lexer.l"
+#line 5 "/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/lexer/lexer.l"
 {return ADD_TOKEN;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 24 "lexer.l"
+#line 6 "/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/lexer/lexer.l"
 {return SUB_TOKEN;}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 25 "lexer.l"
+#line 7 "/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/lexer/lexer.l"
 {return MUL_TOKEN;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 26 "lexer.l"
+#line 8 "/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/lexer/lexer.l"
 {return DIV_TOKEN;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 28 "lexer.l"
-{return DEF_TOKEN;}
+#line 9 "/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/lexer/lexer.l"
+{return ANNOTATION_TOKEN;}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 29 "lexer.l"
-{return IF_TOKEN;}
+#line 10 "/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/lexer/lexer.l"
+{return EQ_TOKEN;}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 30 "lexer.l"
-{return ELSE_TOKEN;}
+#line 12 "/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/lexer/lexer.l"
+{return SEMICOLON_TOKEN;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 31 "lexer.l"
-{return ELIF_TOKEN;}
+#line 13 "/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/lexer/lexer.l"
+{return L_BRACE_TOKEN;}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 32 "lexer.l"
-{return FOR_TOKEN;}
+#line 14 "/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/lexer/lexer.l"
+{return R_BRACE_TOKEN;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 34 "lexer.l"
-{return INT_TOKEN;}
+#line 15 "/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/lexer/lexer.l"
+{return L_PARENTHSIS_TOKEN;}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 35 "lexer.l"
-{return FLOAT_TOKEN;}
+#line 16 "/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/lexer/lexer.l"
+{return R_PARENTHSIS_TOKEN;}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 36 "lexer.l"
-{return STR_TOKEN;}
+#line 17 "/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/lexer/lexer.l"
+{return COMMA_TOKEN;}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 38 "lexer.l"
-{return ID_TOKEN;}
+#line 20 "/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/lexer/lexer.l"
+{return DEF_TOKEN;}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 39 "lexer.l"
-{return NUM_TOKEN;}
+#line 21 "/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/lexer/lexer.l"
+{return IF_TOKEN;}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 40 "lexer.l"
+#line 22 "/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/lexer/lexer.l"
+{return ELSE_TOKEN;}
+	YY_BREAK
+case 16:
+YY_RULE_SETUP
+#line 23 "/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/lexer/lexer.l"
+{return ELIF_TOKEN;}
+	YY_BREAK
+case 17:
+YY_RULE_SETUP
+#line 24 "/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/lexer/lexer.l"
+{return FOR_TOKEN;}
+	YY_BREAK
+case 18:
+YY_RULE_SETUP
+#line 26 "/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/lexer/lexer.l"
+{return INT_TOKEN;}
+	YY_BREAK
+case 19:
+YY_RULE_SETUP
+#line 27 "/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/lexer/lexer.l"
+{return FLOAT_TOKEN;}
+	YY_BREAK
+case 20:
+YY_RULE_SETUP
+#line 28 "/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/lexer/lexer.l"
+{return STR_TOKEN;}
+	YY_BREAK
+case 21:
+YY_RULE_SETUP
+#line 30 "/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/lexer/lexer.l"
+{return ID_TOKEN;}
+	YY_BREAK
+case 22:
+YY_RULE_SETUP
+#line 31 "/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/lexer/lexer.l"
+{return FNUM_TOKEN;}
+	YY_BREAK
+case 23:
+YY_RULE_SETUP
+#line 32 "/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/lexer/lexer.l"
+{return NUM_TOKEN;}
+	YY_BREAK
+case 24:
+YY_RULE_SETUP
+#line 35 "/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/lexer/lexer.l"
 ECHO;
 	YY_BREAK
-#line 841 "lex.yy.c"
+#line 870 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1134,7 +1163,7 @@ static int yy_get_next_buffer (void)
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 48 )
+			if ( yy_current_state >= 50 )
 				yy_c = yy_meta[yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
@@ -1162,11 +1191,11 @@ static int yy_get_next_buffer (void)
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 48 )
+		if ( yy_current_state >= 50 )
 			yy_c = yy_meta[yy_c];
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
-	yy_is_jam = (yy_current_state == 47);
+	yy_is_jam = (yy_current_state == 49);
 
 		return yy_is_jam ? 0 : yy_current_state;
 }
@@ -1842,13 +1871,21 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 40 "lexer.l"
+#line 35 "/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/lexer/lexer.l"
 
 
-int main(int argc, char ** argv){
-    int tok=0;
-    while(tok = yylex()){
-        printf("%d ", tok);
+int initScanner(const char * fpath){
+    yyin = fopen(fpath, "r");
+    if (yyin){
+        return 0;
     }
-    return 0;
+    perror(fpath);
+    return 1;
+}
+
+Token getNextToken(){
+    Token tmp;
+    tmp.EToken =  yylex();
+    tmp.text = yytext;
+    return tmp;
 }

@@ -34,8 +34,10 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.15.3/CMakeCCompiler.cmake"
   "CMakeFiles/3.15.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.15.3/CMakeSystem.cmake"
-  "../fd_stream/CMakeLists.txt"
+  "../lexer/CMakeLists.txt"
   "../parser/CMakeLists.txt"
+  "../unittest/CMakeLists.txt"
+  "../unittest/lexer_test/CMakeLists.txt"
   )
 
 # The corresponding makefile is:
@@ -49,7 +51,9 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "AST/CMakeFiles/CMakeDirectoryInformation.cmake"
   "parser/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "fd_stream/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "lexer/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "unittest/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "unittest/lexer_test/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -57,5 +61,6 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/main.dir/DependInfo.cmake"
   "AST/CMakeFiles/AST.dir/DependInfo.cmake"
   "parser/CMakeFiles/Parser.dir/DependInfo.cmake"
-  "fd_stream/CMakeFiles/FdStream.dir/DependInfo.cmake"
+  "lexer/CMakeFiles/lex.dir/DependInfo.cmake"
+  "unittest/lexer_test/CMakeFiles/lexer_test.dir/DependInfo.cmake"
   )

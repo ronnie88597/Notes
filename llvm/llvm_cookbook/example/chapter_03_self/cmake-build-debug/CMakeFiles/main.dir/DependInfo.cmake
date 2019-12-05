@@ -12,16 +12,14 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "include"
-  "../../../../../../source_code/llvm-project_install/include"
+  "/home/cmp/work_dir/source_code/llvm-project_install/include"
   "../include"
-  "../fd_stream/../../../../../../source_code/llvm-project_install/include"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/cmake-build-debug/AST/CMakeFiles/AST.dir/DependInfo.cmake"
+  "/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/cmake-build-debug/lexer/CMakeFiles/lex.dir/DependInfo.cmake"
   "/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/cmake-build-debug/parser/CMakeFiles/Parser.dir/DependInfo.cmake"
-  "/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/cmake-build-debug/fd_stream/CMakeFiles/FdStream.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.
