@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/lex.yy.h
+
+/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/lexer/lex.yy.c
+stdio.h
+-
+string.h
+-
+errno.h
+-
+stdlib.h
+-
+inttypes.h
+-
+lex.yy.h
+/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/lexer/lex.yy.h
+unistd.h
+-
+
