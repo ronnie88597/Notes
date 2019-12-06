@@ -16,6 +16,10 @@ bool isSame(Token t1, Token t2) {
 TEST(Scanner, getToken) {
     EXPECT_TRUE(
             isSame(getNextToken(),
+                   Token{INT_TOKEN, "int"})
+    );
+    EXPECT_TRUE(
+            isSame(getNextToken(),
                    Token{FNUM_TOKEN, "3.14"})
     );
     EXPECT_TRUE(

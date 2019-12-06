@@ -1,4 +1,4 @@
-def foo(int x, float y, string z):
+def foo(int x, float y, str z):
     int newx = x + 1;
     float newy = y - 3.14;
     return z;

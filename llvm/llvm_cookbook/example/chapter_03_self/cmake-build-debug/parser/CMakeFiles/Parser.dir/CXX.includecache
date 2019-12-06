@@ -21,6 +21,8 @@ lex.yy.h
 /home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/parser/parser.cpp
 parser.h
 /home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/parser/parser.h
+exception
+-
 
 /home/cmp/work_dir/source_code/llvm-project_install/include/llvm-c/DataTypes.h
 cmath

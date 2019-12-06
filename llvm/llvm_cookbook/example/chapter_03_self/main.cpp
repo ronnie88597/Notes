@@ -33,7 +33,7 @@ void setModuleName(const char *InputFilePath) {
 }
 
 int main(int argc, char *argv[]) {
-    printf("---------------START---------------");
+    printf("---------------START---------------\n");
     if (argc < 2 ||
         access(argv[1], F_OK) == -1) {
         printf("Param Error.");
@@ -45,5 +45,7 @@ int main(int argc, char *argv[]) {
 
     initScanner(InputFilePath);
     start();
+
+    ModuleInstPtr->dump();
     return 0;
 }

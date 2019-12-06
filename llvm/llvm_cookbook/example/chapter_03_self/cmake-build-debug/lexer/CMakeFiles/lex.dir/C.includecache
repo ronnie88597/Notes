@@ -19,6 +19,10 @@ stdlib.h
 -
 inttypes.h
 -
+assert.h
+-
+string.h
+-
 lex.yy.h
 /home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/lexer/lex.yy.h
 unistd.h

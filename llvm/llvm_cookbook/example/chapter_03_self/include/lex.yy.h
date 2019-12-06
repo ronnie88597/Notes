@@ -5,7 +5,7 @@
 #ifndef MAIN_LEX_YY_H
 #define MAIN_LEX_YY_H
 
-enum Token_TYPE{
+enum Token_TYPE {
     ADD_TOKEN = 901,
     SUB_TOKEN = 902,
     MUL_TOKEN = 903,
@@ -32,15 +32,18 @@ enum Token_TYPE{
     L_PARENTHSIS_TOKEN = 4004,
     R_PARENTHSIS_TOKEN = 4005,
     COMMA_TOKEN = 4006,
+    COLON_TOKEN = 4007,
 
     ANNOTATION_TOKEN = 5001
 };
 
 int initScanner(const char *fpath);
 
+#define TOKENSIZE 256
+
 typedef struct {
     int EToken;
-    char *text;
+    char text[TOKENSIZE];
 } Token;
 
 Token getNextToken();

@@ -1,4 +1,6 @@
 %{
+#include <assert.h>
+#include <string.h>
 #include "lex.yy.h"
 %}
 %%
@@ -15,6 +17,7 @@
 \(                         {return L_PARENTHSIS_TOKEN;}
 \)                         {return R_PARENTHSIS_TOKEN;}
 ,                          {return COMMA_TOKEN;}
+:                          {return COLON_TOKEN;}
 
 
 def                        {return DEF_TOKEN;}
@@ -25,7 +28,7 @@ for                        {return FOR_TOKEN;}
 
 int                        {return INT_TOKEN;}
 float                      {return FLOAT_TOKEN;}
-string                     {return STR_TOKEN;}
+str                        {return STR_TOKEN;}
 
 [_a-zA-Z][a-zA-Z0-9_]*     {return ID_TOKEN;}
 [0-9]+\.[0-9]*             {return FNUM_TOKEN;}
@@ -46,6 +49,8 @@ int initScanner(const char * fpath){
 Token getNextToken(){
     Token tmp;
     tmp.EToken =  yylex();
-    tmp.text = yytext;
+    size_t s = strlen(yytext);
+    assert( s+1 <= TOKENSIZE);
+    memcpy(tmp.text, yytext, s + 1);
     return tmp;
 }

@@ -23,18 +23,25 @@ public:
            llvm::IRBuilder<> &Builder,
            llvm::Module *ModuleInstPtr);
 
-    void takeToken(Token t);
+    void takeToken(const Token &t);
+
+private:
+    llvm::Function *_parserFuncDeclaration();
+
+    void _parserFuncBody(llvm::Function *F, const Token &t);
+
+    void _parserExpr(llvm::Value *LValue);
 
 protected:
-    void parserFunc();
+    void parserFunc(const Token &t);
 
-    void parserIf();
+    void parserIf(const Token &t);
 
-    void parserLoop();
+    void parserLoop(const Token &t);
 
-    void parserDefDec();
+    void parserVarDefDec(const Token &t);
 
-    void parserAnnotation();
+    void parserAnnotation(const Token &t);
 };
 
 
