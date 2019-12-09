@@ -6,5 +6,5 @@ CXX_FLAGS = -g
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/cmake-build-debug/include -I/home/cmp/work_dir/source_code/llvm-project_install/include -I/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/include 
+CXX_INCLUDES = -I/home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/include -I/home/cmp/work_dir/source_code/llvm-project_install/include 
 

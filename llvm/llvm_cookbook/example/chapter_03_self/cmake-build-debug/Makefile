@@ -124,6 +124,19 @@ main/fast:
 .PHONY : main/fast
 
 #=============================================================================
+# Target rules for targets named Lexer
+
+# Build rule for target.
+Lexer: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Lexer
+.PHONY : Lexer
+
+# fast build rule for target.
+Lexer/fast:
+	$(MAKE) -f lexer/CMakeFiles/Lexer.dir/build.make lexer/CMakeFiles/Lexer.dir/build
+.PHONY : Lexer/fast
+
+#=============================================================================
 # Target rules for targets named AST
 
 # Build rule for target.
@@ -148,19 +161,6 @@ Parser: cmake_check_build_system
 Parser/fast:
 	$(MAKE) -f parser/CMakeFiles/Parser.dir/build.make parser/CMakeFiles/Parser.dir/build
 .PHONY : Parser/fast
-
-#=============================================================================
-# Target rules for targets named lex
-
-# Build rule for target.
-lex: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 lex
-.PHONY : lex
-
-# fast build rule for target.
-lex/fast:
-	$(MAKE) -f lexer/CMakeFiles/lex.dir/build.make lexer/CMakeFiles/lex.dir/build
-.PHONY : lex/fast
 
 #=============================================================================
 # Target rules for targets named lexer_test
@@ -238,9 +238,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... main"
 	@echo "... edit_cache"
+	@echo "... Lexer"
 	@echo "... AST"
 	@echo "... Parser"
-	@echo "... lex"
 	@echo "... lexer_test"
 	@echo "... common_def.o"
 	@echo "... common_def.i"

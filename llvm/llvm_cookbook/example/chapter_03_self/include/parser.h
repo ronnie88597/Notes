@@ -8,6 +8,7 @@
 #include "llvm/IR/IRBuilder.h"
 #include "llvm/IR/Module.h"
 #include "llvm/IR/LLVMContext.h"
+#include "baseAST.h"
 
 extern "C" {
 #include "lex.yy.h"
@@ -26,9 +27,9 @@ public:
     void takeToken(const Token &t);
 
 private:
-    llvm::Function *_parserFuncDeclaration();
+    std::shared_ptr<MG::FunctionDeclAST> _parserFuncDeclaration(std::shared_ptr<MG::FunctionDefAST> Parent);
 
-    void _parserFuncBody(llvm::Function *F, const Token &t);
+    void _parserFuncBody(std::shared_ptr<MG::FunctionDefAST> F, const Token &t);
 
     void _parserExpr(llvm::Value *LValue);
 

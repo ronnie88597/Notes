@@ -111,19 +111,19 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-lexer/CMakeFiles/lex.dir/rule:
-	cd /home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 lexer/CMakeFiles/lex.dir/rule
-.PHONY : lexer/CMakeFiles/lex.dir/rule
+lexer/CMakeFiles/Lexer.dir/rule:
+	cd /home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/cmake-build-debug && $(MAKE) -f CMakeFiles/Makefile2 lexer/CMakeFiles/Lexer.dir/rule
+.PHONY : lexer/CMakeFiles/Lexer.dir/rule
 
 # Convenience name for target.
-lex: lexer/CMakeFiles/lex.dir/rule
+Lexer: lexer/CMakeFiles/Lexer.dir/rule
 
-.PHONY : lex
+.PHONY : Lexer
 
 # fast build rule for target.
-lex/fast:
-	cd /home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/cmake-build-debug && $(MAKE) -f lexer/CMakeFiles/lex.dir/build.make lexer/CMakeFiles/lex.dir/build
-.PHONY : lex/fast
+Lexer/fast:
+	cd /home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/cmake-build-debug && $(MAKE) -f lexer/CMakeFiles/Lexer.dir/build.make lexer/CMakeFiles/Lexer.dir/build
+.PHONY : Lexer/fast
 
 lex.yy.o: lex.yy.c.o
 
@@ -131,7 +131,7 @@ lex.yy.o: lex.yy.c.o
 
 # target to build an object file
 lex.yy.c.o:
-	cd /home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/cmake-build-debug && $(MAKE) -f lexer/CMakeFiles/lex.dir/build.make lexer/CMakeFiles/lex.dir/lex.yy.c.o
+	cd /home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/cmake-build-debug && $(MAKE) -f lexer/CMakeFiles/Lexer.dir/build.make lexer/CMakeFiles/Lexer.dir/lex.yy.c.o
 .PHONY : lex.yy.c.o
 
 lex.yy.i: lex.yy.c.i
@@ -140,7 +140,7 @@ lex.yy.i: lex.yy.c.i
 
 # target to preprocess a source file
 lex.yy.c.i:
-	cd /home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/cmake-build-debug && $(MAKE) -f lexer/CMakeFiles/lex.dir/build.make lexer/CMakeFiles/lex.dir/lex.yy.c.i
+	cd /home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/cmake-build-debug && $(MAKE) -f lexer/CMakeFiles/Lexer.dir/build.make lexer/CMakeFiles/Lexer.dir/lex.yy.c.i
 .PHONY : lex.yy.c.i
 
 lex.yy.s: lex.yy.c.s
@@ -149,7 +149,7 @@ lex.yy.s: lex.yy.c.s
 
 # target to generate assembly for a file
 lex.yy.c.s:
-	cd /home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/cmake-build-debug && $(MAKE) -f lexer/CMakeFiles/lex.dir/build.make lexer/CMakeFiles/lex.dir/lex.yy.c.s
+	cd /home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/cmake-build-debug && $(MAKE) -f lexer/CMakeFiles/Lexer.dir/build.make lexer/CMakeFiles/Lexer.dir/lex.yy.c.s
 .PHONY : lex.yy.c.s
 
 # Help Target
@@ -159,7 +159,7 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... lex"
+	@echo "... Lexer"
 	@echo "... edit_cache"
 	@echo "... lex.yy.o"
 	@echo "... lex.yy.i"

@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../lib/liblexer.a  CMakeFiles/lexer.dir/lex.yy.c.o
+/usr/bin/ranlib ../lib/liblexer.a

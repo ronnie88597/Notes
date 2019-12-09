@@ -10,7 +10,7 @@ target_link_directories(lexer_test PUBLIC
         ../../../../../../../source_code/googletest_build/lib)
 
 target_link_libraries(lexer_test PUBLIC
-        -llex
+        -lLexer
         -lfl
         -lgtest
         -lpthread

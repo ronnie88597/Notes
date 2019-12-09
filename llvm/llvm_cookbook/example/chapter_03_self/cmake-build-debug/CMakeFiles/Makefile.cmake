@@ -49,9 +49,9 @@ set(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
+  "lexer/CMakeFiles/CMakeDirectoryInformation.cmake"
   "AST/CMakeFiles/CMakeDirectoryInformation.cmake"
   "parser/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "lexer/CMakeFiles/CMakeDirectoryInformation.cmake"
   "unittest/CMakeFiles/CMakeDirectoryInformation.cmake"
   "unittest/lexer_test/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
@@ -59,8 +59,8 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/main.dir/DependInfo.cmake"
+  "lexer/CMakeFiles/Lexer.dir/DependInfo.cmake"
   "AST/CMakeFiles/AST.dir/DependInfo.cmake"
   "parser/CMakeFiles/Parser.dir/DependInfo.cmake"
-  "lexer/CMakeFiles/lex.dir/DependInfo.cmake"
   "unittest/lexer_test/CMakeFiles/lexer_test.dir/DependInfo.cmake"
   )

@@ -5,6 +5,7 @@
 #include "parser.h"
 #include <exception>
 
+
 class BadTypeToken : public std::exception {
 public:
     const char *what() const noexcept override {
@@ -81,7 +82,7 @@ void Parser::takeToken(const Token &t) {
 }
 
 
-llvm::Function *Parser::_parserFuncDeclaration() {
+std::shared_ptr<MG::FunctionDeclAST> Parser::_parserFuncDeclaration(std::shared_ptr<MG::FunctionDefAST> Parent) {
     Token FunName = getNextToken();
     /*Token L_P = //ignore it*/getNextToken();
     std::vector<llvm::Type *> Params;
@@ -113,38 +114,23 @@ llvm::Function *Parser::_parserFuncDeclaration() {
                     llvm::Type::getInt32Ty(this->_Ctxt),
                     Params,
                     false);
-    llvm::Function *F = llvm::Function::Create(
-            FT,
-            llvm::GlobalValue::ExternalLinkage,
-            FunName.text,
-            this->_MPtr);
 
-    auto ArgIS = F->arg_begin();
-    auto ArgIE = F->arg_end();
-    int Idx = 0;
-    for (;ArgIS != ArgIE;ArgIS ++){
-        ArgIS->setName(TokenParams[Idx].text);
-        Idx++;
-    }
-
-    return F;
+    std::shared_ptr<MG::FunctionDeclAST>
+            ret(new MG::FunctionDeclAST(Parent, TokenParams, FT));
+    return ret;
 }
 
-void Parser::_parserFuncBody(llvm::Function *F, const Token &t) {
+void Parser::_parserFuncBody( std::shared_ptr<MG::FunctionDefAST> F, const Token &t) {
 // TODO FIX-ME
 //     filter out netsted function declaration and throw exception
-    llvm::BasicBlock *L_Entery =
-            llvm::BasicBlock::Create(
-                    this->_Ctxt,
-                    "L_Entery",
-                    F);
-    this->_IRB.SetInsertPoint(L_Entery);
     this->takeToken(t);
 }
 
 
 void Parser::parserFunc(const Token &t) {
-    llvm::Function *F = Parser::_parserFuncDeclaration();
+    std::shared_ptr<MG::FunctionDefAST> F(new MG::FunctionDefAST());
+    std::shared_ptr<MG::FunctionDeclAST> FDeclAST = Parser::_parserFuncDeclaration(F);
+    F->setFuncDecl(FDeclAST);
 
     Token nt = getNextToken();
 
@@ -179,7 +165,7 @@ void Parser::parserVarDefDec(const Token &t) {
     Token nt = getNextToken();
     if (SEMICOLON_TOKEN == nt.EToken) {
         return;
-    } else if (EQ_TOKEN == nt.EToken && INT_TOKEN ==t.EToken) {
+    } else if (EQ_TOKEN == nt.EToken && INT_TOKEN == t.EToken) {
         this->_parserExpr(VarAddr);
     }
 }
@@ -189,9 +175,19 @@ void Parser::parserAnnotation(const Token &t) {
 }
 
 void Parser::_parserExpr(llvm::Value *LValue) {
-    this->_IRB.CreateStore(
-            this->_IRB.getInt32(0),
-            LValue);
+    Token Operand1 = getNextToken();
+    Token Operator = getNextToken();
+    Token Operand2 = getNextToken();
+    switch (Operand1.EToken) {
+        default:
+            throw (BadTypeToken());
+        case ID_TOKEN :
+            break;
+        case NUM_TOKEN :
+            break;
+        case FNUM_TOKEN :
+            break;
+    }
 }
 
 

@@ -3,4 +3,40 @@
 
 AST/CMakeFiles/AST.dir/baseAST.cpp.o
  ../include/baseAST.h
+ ../include/lex.yy.h
  /home/cmp/work_dir/Notes/llvm/llvm_cookbook/example/chapter_03_self/AST/baseAST.cpp
+ /home/cmp/work_dir/source_code/llvm-project_install/include/llvm-c/DataTypes.h
+ /home/cmp/work_dir/source_code/llvm-project_install/include/llvm-c/Types.h
+ /home/cmp/work_dir/source_code/llvm-project_install/include/llvm/ADT/APFloat.h
+ /home/cmp/work_dir/source_code/llvm-project_install/include/llvm/ADT/APInt.h
+ /home/cmp/work_dir/source_code/llvm-project_install/include/llvm/ADT/ArrayRef.h
+ /home/cmp/work_dir/source_code/llvm-project_install/include/llvm/ADT/EpochTracker.h
+ /home/cmp/work_dir/source_code/llvm-project_install/include/llvm/ADT/Hashing.h
+ /home/cmp/work_dir/source_code/llvm-project_install/include/llvm/ADT/None.h
+ /home/cmp/work_dir/source_code/llvm-project_install/include/llvm/ADT/Optional.h
+ /home/cmp/work_dir/source_code/llvm-project_install/include/llvm/ADT/STLExtras.h
+ /home/cmp/work_dir/source_code/llvm-project_install/include/llvm/ADT/SmallPtrSet.h
+ /home/cmp/work_dir/source_code/llvm-project_install/include/llvm/ADT/SmallVector.h
+ /home/cmp/work_dir/source_code/llvm-project_install/include/llvm/ADT/StringMap.h
+ /home/cmp/work_dir/source_code/llvm-project_install/include/llvm/ADT/StringRef.h
+ /home/cmp/work_dir/source_code/llvm-project_install/include/llvm/ADT/iterator.h
+ /home/cmp/work_dir/source_code/llvm-project_install/include/llvm/ADT/iterator_range.h
+ /home/cmp/work_dir/source_code/llvm-project_install/include/llvm/Config/abi-breaking.h
+ /home/cmp/work_dir/source_code/llvm-project_install/include/llvm/Config/llvm-config.h
+ /home/cmp/work_dir/source_code/llvm-project_install/include/llvm/IR/DerivedTypes.h
+ /home/cmp/work_dir/source_code/llvm-project_install/include/llvm/IR/Type.h
+ /home/cmp/work_dir/source_code/llvm-project_install/include/llvm/Support/AlignOf.h
+ /home/cmp/work_dir/source_code/llvm-project_install/include/llvm/Support/Allocator.h
+ /home/cmp/work_dir/source_code/llvm-project_install/include/llvm/Support/CBindingWrapping.h
+ /home/cmp/work_dir/source_code/llvm-project_install/include/llvm/Support/Casting.h
+ /home/cmp/work_dir/source_code/llvm-project_install/include/llvm/Support/Compiler.h
+ /home/cmp/work_dir/source_code/llvm-project_install/include/llvm/Support/DataTypes.h
+ /home/cmp/work_dir/source_code/llvm-project_install/include/llvm/Support/ErrorHandling.h
+ /home/cmp/work_dir/source_code/llvm-project_install/include/llvm/Support/Host.h
+ /home/cmp/work_dir/source_code/llvm-project_install/include/llvm/Support/MathExtras.h
+ /home/cmp/work_dir/source_code/llvm-project_install/include/llvm/Support/MemAlloc.h
+ /home/cmp/work_dir/source_code/llvm-project_install/include/llvm/Support/PointerLikeTypeTraits.h
+ /home/cmp/work_dir/source_code/llvm-project_install/include/llvm/Support/ReverseIteration.h
+ /home/cmp/work_dir/source_code/llvm-project_install/include/llvm/Support/ScalableSize.h
+ /home/cmp/work_dir/source_code/llvm-project_install/include/llvm/Support/SwapByteOrder.h
+ /home/cmp/work_dir/source_code/llvm-project_install/include/llvm/Support/type_traits.h

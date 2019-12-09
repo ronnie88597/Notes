@@ -9,6 +9,16 @@
 ../include/baseAST.h
 string
 -
+memory
+-
+vector
+-
+llvm/IR/DerivedTypes.h
+-
+lex.yy.h
+../include/lex.yy.h
+map
+-
 
 ../include/lex.yy.h
 
@@ -19,6 +29,8 @@ llvm/IR/Module.h
 ../include/llvm/IR/Module.h
 llvm/IR/LLVMContext.h
 ../include/llvm/IR/LLVMContext.h
+baseAST.h
+../include/baseAST.h
 lex.yy.h
 ../include/lex.yy.h
 
