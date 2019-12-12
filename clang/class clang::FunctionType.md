@@ -1,3 +1,0 @@
-# class clang::FunctionType
-
-

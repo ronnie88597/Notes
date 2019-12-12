@@ -6,4 +6,4 @@ Since a given function can be declared several times in a program, there may be 
 
 Inheritance diagram for class clang::FunctionDecl:
 
-![class clang::FunctionDecl inheritance diagram](./img/class clang::FunctionDecl inheritance diagram.png)
+![class clang::FunctionDecl inheritance diagram](../img/class clang::FunctionDecl inheritance diagram.png)
