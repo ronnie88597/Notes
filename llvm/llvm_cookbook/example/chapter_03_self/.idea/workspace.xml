@@ -2,11 +2,11 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="main" targetName="AST" />
-      <config projectName="main" targetName="Lexer" />
-      <config projectName="main" targetName="Parser" />
-      <config projectName="main" targetName="lexer_test" />
       <config projectName="main" targetName="main" />
+      <config projectName="main" targetName="AST" />
+      <config projectName="main" targetName="lexer_test" />
+      <config projectName="main" targetName="Parser" />
+      <config projectName="main" targetName="Lexer" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
@@ -15,9 +15,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0f0c8d86-7aba-4474-b1eb-8c4e2b3f2b6e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="0f0c8d86-7aba-4474-b1eb-8c4e2b3f2b6e" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,6 +100,7 @@
       <updated>1575860901900</updated>
       <workItem from="1575860903211" duration="3818000" />
       <workItem from="1575888929770" duration="1206000" />
+      <workItem from="1576378553650" duration="15000" />
     </task>
     <servers />
   </component>
