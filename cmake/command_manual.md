@@ -507,3 +507,12 @@ configure_file(<input> <output>
 ```
 
 ​	Copies an <input> file to an <output> file and substitutes variable values referenced as @VAR@ or ${VAR} in the input file content. Each variable reference will be replaced with the current value of the variable, or the empty string if the variable is not defined. Furthermore, input lines of the form.
+
+
+
+## [check_library_exists](https://cmake.org/cmake/help/v3.16/module/CheckLibraryExists.html?highlight=check_library_exists#command:check_library_exists):
+
+
+
+## [find_package](https://cmake.org/cmake/help/v3.16/command/find_package.html?highlight=find_package):
+
