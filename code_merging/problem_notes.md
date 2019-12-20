@@ -65,17 +65,70 @@
 
 - As the function `X86TargetLowering::LowerGlobalAddress` in llvm/lib/Target/X86/X86ISelLowering.cpp and llvm/lib/Target/X86/X86ISelLowering.h has been refactored, I can not merge.
 
-  ![diff rlt llvm/lib/Target/X86/X86ISelLowering.cpp](/home/cmp/work_dir/Notes/code_merging/img/diff_rlt_lib_Target_X86_X86ISelLowering2.png)
+  ![diff rlt llvm/lib/Target/X86/X86ISelLowering.cpp](./img/diff_rlt_lib_Target_X86_X86ISelLowering2.png)
 
 - For now, I leave llvm/patches, llvm/projects, llvm/test alone without dealing.
 
-  ![llvm/patches, llvm/projects, llvm/test](/home/cmp/work_dir/Notes/code_merging/img/patches_projects_test.png)
+  ![llvm/patches, llvm/projects, llvm/test](./img/patches_projects_test.png)
 
 - As `configure & make` was not deprecated, for now, I do not merge llvm/configure and llvm/Makefile.
 
+- As llvm/tools/clang/lib/Basic/Targets.cpp has been refactored, I can not merge.
+
+- As the function `EmitAssemblyHelper::CreateTargetMachine` in llvm/tools/clang/lib/CodeGen/BackendUtil.cpp file has been refactored, I can not merge.
+
+  ![diff rlt llvm/tools/clang/lib/CodeGen/BackendUtil.cpp](./img/diff_rlt_clang_lib_CodeGen_BackendUtil.png)
+
+- As the function `void CodeGenVTables::createVTableInitializer` in llvm/tools/clang/lib/CodeGen/CGVTables.cpp file has been refactored, I can not merge.
+
+  ![diff rlt llvm/tools/clang/lib/CodeGen/CGVTables.cpp](./img/diff_rlt_clang_lib_CodeGen_CGVTables.png)
+
+- As the function `CodeGenFunction::StartFunction` in llvm/tools/clang/lib/CodeGen/CodeGenFunction.cpp file has been refactored, I can not merge.
+
+  ![](./img/diff_rlt_clang_lib_CodeGen_CodeGenFunction.png)
+
+- As the `CodeGenModule::isInSanitizerBlacklist` function in llvm/tools/clang/lib/CodeGen/CodeGenModule.cpp file has been refactored, I can not merge.
+
+  ![diff rlt llvm/tools/clang/lib/CodeGen/CodeGenModule.cpp](/home/cmp/work_dir/Notes/code_merging/img/diff_rlt_clang_lib_CodeGen_CodeGenModule.png)
+
+- As the `hasAnyUsedVirtualInlineFunction` function in llvm/tools/clang/lib/CodeGen/ItaniumCXXABI.cpp file has been refactored, I can not merge.
+
+  ![diff rlt llvm/tools/clang/lib/CodeGen/ItaniumCXXABI.cpp](./img/diff_rlt_clang_lib_CodeGen_ItaniumCXXABI.png)
+
+- As the `ItaniumCXXABI::EmitLoadOfMemberFunctionPointer` Function in llvm/tools/clang/lib/CodeGen/ItaniumCXXABI.cpp file has been refactored, I can not merge.
+
+  ![diff rlt llvm/tools/clang/lib/CodeGen/ItaniumCXXABI.cpp](./img/diff_rlt_clang_lib_CodeGen_ItaniumCXXABI2.png)
+
+- There so many differences in llvm/tools/clang/lib/CodeGen/ItaniumCXXABI.cpp, you would better merge it carefully.
+
+- As the `MicrosoftCXXABI::emitVTableDefinitions` function in llvm/tools/clang/lib/CodeGen/MicrosoftCXXABI.cpp file has been refactored, I can not merge.
+
+  ![diff rlt llvm/tools/clang/lib/CodeGen/MicrosoftCXXABI.cpp](./img/diff_rlt_clang_lib_CodeGen_MicrosoftCXXABI.png)
+
+- As the `SanitizerArgs::clear` function be remove in llvm/tools/clang/lib/Driver/SanitizerArgs.cpp file has been removed, I can not merge.
+
+  ![diff rlt llvm/tools/clang/lib/Driver/SanitizerArgs.cpp](./img/diff_rlt_clang_lib_Drive_SanitizerArgs.png)
+
+- As the `getSupportedSanitizers` function in llvm/tools/clang/lib/Driver/ToolChains.cpp file as been refactored, I can not merge.
+
+  ![diff rlt llvm/tools/clang/lib/Driver/ToolChains.cpp](/home/cmp/work_dir/Notes/code_merging/img/diff_rlt_clang_lib_Driver_ToolChains.png)
+
+- The llvm/tools/clang/lib/Driver/Tools.cpp file has been removed.
+
+- 
+
+- 
+
 - 
 
 - 
 
 - 
 
+- 
+
+- 
+
+- 
+
+  
