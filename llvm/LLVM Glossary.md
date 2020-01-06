@@ -9,7 +9,7 @@
 | countTrailingones  | ...                                                          |
 | countPopulation    | Also called `Population count` is the number of 1s(ones) in the binary representation of a non-negative integer. it's also known as `pop count`, `popcount`, `sideways sum`, and`Hamming weight`. For example, 5(which is 101 in binary) has a population count of 2. |
 | ActiveBits         | BitWidth - countLeadingZeros                                 |
-|                    |                                                              |
+| SDNode             | SelectionDAG node                                            |
 |                    |                                                              |
 |                    |                                                              |
 |                    |                                                              |

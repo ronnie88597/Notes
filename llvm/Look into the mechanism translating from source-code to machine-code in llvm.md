@@ -1,6 +1,4 @@
-# Life of an instruction in LLVM
-
-LLVM is a complex piece of software. There are several paths one may take on the quest of understanding how it works, none of which is simple. I recently had to dig in some areas of LLVM I was not previously familiar with, and this article is one of the outcomes of this quest.
+# Look into the mechanism translating from source-code to machine-code in llvm
 
 What I aim to do here is follow the various incarnations an "instruction" takes when it goes through LLVM's multiple compilation stages, starting from a syntactic construct in the source language and until being encoded as binary machine code in an ouput object file.
 
@@ -203,7 +201,7 @@ The code we have at this point is still represented as a DAG. But CPUs don't exe
 
 Each target has some hooks it can implement to affect the way scheduling is done. I won't dwell on this topic here, however.
 
-Finally, the scheduler emits a list of instructions into a `MachineBasicBlock`, using `InstrEmitter::EmitMachineNode` to translate from `SDNode`. The instructions here take the MachineInstr from ("MI form" from now on), and the DAG can be destroyed.
+Finally, the scheduler emits a list of instructions into a `MachineBasicBlock`, using `InstrEmitter::EmitMachineNode` to translate from `SDNode`. The instructions here take the MachineInstr form ("MI form" from now on), and the DAG can be destroyed.
 
 We can examine the machine instructions emitted in this step by calling llc with the `-print-machineinstrs` flag and looking at the first output that says "After instruction selection":
 
@@ -323,6 +321,10 @@ The object file(or assembly code) emission is done by implementing the `MCStream
 A `MCInst` is deliberately a very simple representation. It tries to shed as much semantic information as possible, keeping only the instruction opcode and list of operands (and a source location for assembler diagnostic). Like LLVM IR, it's an internal representation with multiple possible encodings. The two most obvious are assembly(as shown above) and binary object files.
 
 llvm-mc is a tool that uses the MC framework to implement assemblers and disassemblers. Internally, `MCInst` is the representation used to translate between the binary and textual forms. At this point the tool doesn't care which compiler produced the assembly/object file.
+
+## Overview of compilation process
+
+![overview of compilation process](./img/overview of compilation process.png)
 
 ## Related information:
 
