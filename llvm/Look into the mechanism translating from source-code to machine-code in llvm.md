@@ -171,9 +171,18 @@ There are a couple of ways to visualize the DAG. One is to pass the `-debug` fla
 
    ![dag1](./img/dag1.png)
 
+The edges of the DAG show the ordering among its operations by a use-def relationship. For example, if a node A has an outgoing edge to node B, meaning node B defines the values that are used in node A. The black arrows represent an inherent ordering between two operations, such as operation and operands. The dashed blue arrows represent chains that exist to enforce a relationship between two un-related nodes. For example, two storing operations should follow the flow of the program in case both access the same memory address. The red edges ensure that two nodes must be executed one after another with no other instructions between. For example, in the above DAG, the `X86ISD::RET_FLAG` node must be executed right after `CopyToReg` node.
+
 Before the SelectionDAG machinery actually emits machine instructions from DAG nodes, these undergo a few other transformations. The most import are the type and operation legalization steps, which use target-specific hooks to convert all operations and types into ones that the target actually supports.
 
-## "Legalizing" sdiv into sdivrem on x86
+## Legalization in LLVM
+
+Legalization in the phase in code generation that eradicates any instructions that are not supported by the target. There are two legalization phases in LLVM:
+
+-   SelectionDAGs Legalization Types
+-   SelectionDAGs Legalize
+
+#### "Legalizing" sdiv into sdivrem on x86
 
 The division instruction(idiv for signed operands) of x86 computes both the quotient and the remainder of the operation, and stores them in two separate registers. Since LLVM's instruction selection distinguishes between such operations (called `ISD::SDIVREM`) and division that only computes the quotient(`ISD::SDIV`), our DAG node will be "legalized" during the DAG legalization phase when the target is x86. Here's how it happens.
 
