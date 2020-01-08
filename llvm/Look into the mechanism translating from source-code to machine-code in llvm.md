@@ -338,3 +338,5 @@ llvm-mc is a tool that uses the MC framework to implement assemblers and disasse
 ## Related information:
 
 https://eli.thegreenplace.net/2012/11/24/life-of-an-instruction-in-llvm/#id1
+
+https://wiki.aalto.fi/display/t1065450/LLVM+Legalization+and+Lowering
