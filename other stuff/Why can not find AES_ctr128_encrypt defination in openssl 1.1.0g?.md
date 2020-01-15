@@ -1,3 +1,5 @@
+# Why can not find AES_ctr128_encrypt defination in openssl 1.1.0g?
+
 AES_ctr128_encrypt is removed from openssl 1.1.0g
 
 You can use `CRYPTO_ctr128_encrypt` instead of  `AES_ctr128_encrypt`
